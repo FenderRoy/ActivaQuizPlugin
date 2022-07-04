@@ -1,0 +1,25 @@
+name: ActivaQuizPlugin
+version: '${project.version}'
+main: activaquizplugin.activaquizplugin.ActivaQuizPlugin
+api-version: 1.19
+authors: [ Fender ]
+description: Activa Kingdom's official Quiz Plugin.
+website: https://activakingdoms.nl
+
+commands:
+  randomWiskundeVraag:
+    description: Stel een random wiskunde vraag in de chat.
+    usage: /randomWiskundeVraag
+    permission: ActivaQuizPlugin.randomWiskundeVraag
+  annuleerHuidigeVraag:
+    description: Annuleert de huidige vraag.
+    usage: /annuleerHuidigeVraag
+    permission: ActivaQuizPlugin.annuleerHuidigeVraag
+  ActivaQuizPlugin:
+    description: Plugin specific commands.
+    usage: /ActivaQuizPlugin
+    permission: ActivaQuizPlugin.ActivaQuizPlugin
+  randomCustomVraag:
+    description: Stel een random custom vraag in de chat.
+    usage: /randomCustomVraag
+    permission: ActivaQuizPlugin.randomCustomVraag

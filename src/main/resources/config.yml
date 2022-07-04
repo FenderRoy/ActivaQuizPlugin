@@ -1,0 +1,58 @@
+# Activa Quiz Plugin.
+# Developed by: Fender
+
+# Algemene waardes.
+ChatPrefix: Activa Kingdoms
+
+
+# Algemene Vraag waardes.
+
+# Tijd in secondes dat de vraag actief is.
+# Als er niet word gereageerd in deze tijd word de vraag geannuleerd.
+VraagTimeOutDelay: 30
+
+#Tijd in seconden tussen het automatisch stellen van vragen.
+DelayTussenVragen: 300
+
+#Gebruik de volgende soorten vragen in een random vraag.
+enableWiskundeVragen: true
+enableCustomVragen: true;
+
+#Procent kans om daadwerkelijk een vraag te stellen, of om over te slaan.
+#Dit kan ervoor zorgen voor extra "randomness" van vragen.
+#Voorbeeld: elke X aantal minuten een 50% kans op een vraag.
+ProcentKansOpVraag: 100
+
+# RekenSommen
+# De Max values zijn de hoogste nummers die in een som mogen voorkomen.
+# Voorbeeld:
+# PlusGetalMaxValue = 600
+# Random som kan zijn: Wat is: 600 + 214?
+# Maar de som kan niet een getal boven de 600 hebben.
+
+# Plus Sommen
+PlusGetalMaxValue: 150
+
+# Min Sommen
+MinGetalMaxValue: 100
+MinSomAntwoordMagInDeMin: true
+
+# Keer Sommen.
+KeerGetalMaxValue: 25
+
+#-------------------------------------------------------------------#
+#------------ Not fully implemented yet. ignore for now ------------#
+#-------------------------------------------------------------------#
+
+#Gebruik maken van een leaderboard.
+EnableLeaderboard: false
+
+#Gebruik a.u.b. maar 1.
+EnableYML: true
+enableMySQL: false
+
+#MySQL atabase settings
+DatabaseIPAdress: 192.168.1.27:3306
+DatabaseName: ActivaQuizLeaderboard
+DatabaseUsername: Username
+DatabasePassword: Password
