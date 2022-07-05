@@ -27,7 +27,7 @@ public class ShuffledWordQuestionManager {
         return question;
     }
     public static void initialize(){
-        path = PLUGIN.getDataFolder().getAbsolutePath()+ "/ShuffledWords.txt";
+        path = PLUGIN.getDataFolder().getAbsolutePath()+ "/questions/ShuffledWords.txt";
         shuffledWordList.clear();
         shuffledWordListOriginal.clear();
 

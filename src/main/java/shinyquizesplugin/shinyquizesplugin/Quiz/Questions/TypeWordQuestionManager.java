@@ -27,7 +27,7 @@ public class TypeWordQuestionManager {
         return question;
     }
     public static void initialize(){
-        path = PLUGIN.getDataFolder().getAbsolutePath()+ "/TypeWords.txt";
+        path = PLUGIN.getDataFolder().getAbsolutePath()+ "/questions/TypeWords.txt";
         typeWordList.clear();
         typeWordListOriginal.clear();
 

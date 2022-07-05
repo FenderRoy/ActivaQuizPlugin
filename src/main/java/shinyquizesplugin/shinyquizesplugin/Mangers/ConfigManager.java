@@ -38,6 +38,8 @@ public class ConfigManager {
         config.addDefault("DatabaseUsername", "Username");
         config.addDefault("DatabasePassword", "Password");
 
+        config.addDefault("Language", "Dutch");
+
 
     }
     public static void initializeConfig(){

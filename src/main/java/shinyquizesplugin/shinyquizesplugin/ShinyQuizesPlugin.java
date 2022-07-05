@@ -2,6 +2,8 @@ package shinyquizesplugin.shinyquizesplugin;
 
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
+import shinyquizesplugin.Languages.FileManager;
+import shinyquizesplugin.Languages.LanguageManager;
 import shinyquizesplugin.shinyquizesplugin.Leaderboard.LeaderboardManager;
 import shinyquizesplugin.shinyquizesplugin.Leaderboard.PlayerWinManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.CommandsManager;
@@ -15,6 +17,8 @@ import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.TypeWordQuestionManage
 import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.questionGetters.RandomQuestionManager;
 import shinyquizesplugin.shinyquizesplugin.rewards.RewardManager;
 
+import java.io.File;
+
 public final class ShinyQuizesPlugin extends JavaPlugin {
 
     public static ShinyQuizesPlugin PLUGIN = null;
@@ -22,7 +26,12 @@ public final class ShinyQuizesPlugin extends JavaPlugin {
     @Override
     public void onEnable() {
         PLUGIN = this;
+        FileManager.createFiles();
+        LanguageManager.initialize();
+
         ConfigManager.initializeConfig();
+
+        LanguageManager.loadLanguage(ConfigManager.getConfig().getString("Language"));
         ServerCommunicator.initialize();
 
         HandlersManager.initializeHandlers();

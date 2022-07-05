@@ -58,7 +58,7 @@ public class PlayerWinManager {
 
 
         try {
-            properties.store(Files.newOutputStream(Paths.get(PLUGIN.getDataFolder().getAbsolutePath()+ "/playerWinData.properties")), null);
+            properties.store(Files.newOutputStream(Paths.get(PLUGIN.getDataFolder().getAbsolutePath()+ "/playerdata/playerWinData.properties")), null);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -68,7 +68,7 @@ public class PlayerWinManager {
         if(!checkIfFileExists()) return;
         Properties properties = new Properties();
         try {
-            properties.load(Files.newInputStream(Paths.get(PLUGIN.getDataFolder().getAbsolutePath()+ "/playerWinData.properties")));
+            properties.load(Files.newInputStream(Paths.get(PLUGIN.getDataFolder().getAbsolutePath()+ "/playerdata/playerWinData.properties")));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -79,7 +79,7 @@ public class PlayerWinManager {
     }
 
     private static boolean checkIfFileExists(){
-        File tempFile = new File(PLUGIN.getDataFolder().getAbsolutePath()+ "/playerWinData.properties");
+        File tempFile = new File(PLUGIN.getDataFolder().getAbsolutePath()+ "/playerdata/playerWinData.properties");
         return tempFile.exists();
     }
 

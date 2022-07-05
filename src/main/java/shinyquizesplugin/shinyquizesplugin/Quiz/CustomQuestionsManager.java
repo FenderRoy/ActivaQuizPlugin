@@ -23,7 +23,7 @@ public class CustomQuestionsManager {
 
     public static void getCustomQuestionsFromFile(){
 
-        path = PLUGIN.getDataFolder().getAbsolutePath()+ "/CustomQuestions.txt";
+        path = PLUGIN.getDataFolder().getAbsolutePath()+ "/questions/CustomQuestions.txt";
         customQuestionList.clear();
         customQuestionListOriginal.clear();
 

@@ -26,7 +26,7 @@ public class RewardManager {
     }
 
     public static void initializeRewards() {
-        path = PLUGIN.getDataFolder().getAbsolutePath() + "/Rewards.txt";
+        path = PLUGIN.getDataFolder().getAbsolutePath() + "/rewards/Rewards.txt";
         rewardList.clear();
 
         try {
