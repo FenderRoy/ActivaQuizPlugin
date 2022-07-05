@@ -1,4 +1,4 @@
-package shinyquizesplugin.shinyquizesplugin.Commands.ActivaCommands;
+package shinyquizesplugin.shinyquizesplugin.Commands;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

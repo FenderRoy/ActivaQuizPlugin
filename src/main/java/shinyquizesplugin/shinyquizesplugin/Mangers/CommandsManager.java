@@ -1,11 +1,11 @@
 package shinyquizesplugin.shinyquizesplugin.Mangers;
 
 import shinyquizesplugin.shinyquizesplugin.Commands.*;
-import shinyquizesplugin.shinyquizesplugin.Commands.ActivaCommands.QuizLeaderboardCommand;
+import shinyquizesplugin.shinyquizesplugin.Commands.QuizLeaderboardCommand;
+import shinyquizesplugin.shinyquizesplugin.Commands.ShinyQuizesPluginCommand;
 import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
 import shinyquizesplugin.shinyquizesplugin.TabCompleters.QuizWinsTabCompleter;
 import shinyquizesplugin.shinyquizesplugin.TabCompleters.ShinyQuizesPluginTabCompleter;
-import shinyquizesplugin.shinyquizesplugin.TabCompleters.startMathQuestionTabCompleter;
 
 import static shinyquizesplugin.shinyquizesplugin.ShinyQuizesPlugin.PLUGIN;
 

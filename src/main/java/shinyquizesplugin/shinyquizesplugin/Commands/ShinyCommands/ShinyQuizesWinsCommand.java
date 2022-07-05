@@ -1,9 +1,8 @@
-package shinyquizesplugin.shinyquizesplugin.Commands.ActivaCommands;
+package shinyquizesplugin.shinyquizesplugin.Commands.ShinyCommands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import shinyquizesplugin.shinyquizesplugin.Leaderboard.PlayerWinManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.ConfigManager;
