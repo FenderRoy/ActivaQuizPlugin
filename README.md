@@ -1,13 +1,10 @@
-# ActivaQuizPlugin
-
- Activa Quiz Plugin
-
-Deze plugin is in development voor de Activa Kingdoms Minecraft Server. \
-https://activakingdoms.nl
+# Shiny Quizes
 
 
-Deze plugin valt onder de MIT License. 
-Wil je gebruik maken van deze code, of een fork maken van de plugin, voel je vrij maar vergeet geen credits te geven.
+
+
+This plugin falls under the MIT license.
+Please credit me if you use the source for your own project.
 
 Developed by:
 Fender \
