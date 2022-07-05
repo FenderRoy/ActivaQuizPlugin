@@ -1,7 +1,9 @@
 RewardOne:
-- diamond_sword 1
-- diamond_block 10
-- diamond 30
+-diamond_sword 1
+-diamond_block 10
+-diamond 30
 RewardTwo:
-- iron_ingot 64
-- light_blue_stained_glass 2
+-iron_ingot 64
+-light_blue_stained_glass 2
+RewardThree:
+-quartz_block 300

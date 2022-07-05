@@ -1,5 +1,6 @@
 package shinyquizesplugin.shinyquizesplugin.Quiz;
 
+import shinyquizesplugin.shinyquizesplugin.Mangers.ConfigManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
 import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.Question;
 
@@ -15,7 +16,8 @@ public class ActiveQuizInformation {
 
     public static void cancelQuestion(){
         if(active){
-            ServerCommunicator.sendChatMessage("Helaas! Niemand heeft het geraden. Het juiste antwoord was: "+getQuestion().getAnswer()+".");
+            String color = ConfigManager.getConfig().getString("HighlightedWordColor");
+            ServerCommunicator.sendChatMessage(question.getFailedMessage(color));
             active = false;
             question = null;
         }

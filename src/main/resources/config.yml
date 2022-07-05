@@ -15,6 +15,13 @@
 # default: §5Shiny §dQuizes
 ChatPrefix: §5Shiny §dQuizes
 
+# Keep track of an leaderboard.
+# default: true
+EnableLeaderboard: true
+
+# whether to give rewards when a player answers correctly.
+# default: true
+GiveRandomRewardOnCorrectAnswer: true
 
 #-------------------------------------------------------------------#
 #------------------------  Random Questions ------------------------#
@@ -36,11 +43,28 @@ QuestionTimeOutDelay: 30
 # default: 90
 DelayBetweenQuestions: 90
 
+# The color of the highlighted words.
+# default: §b
+HighlightedWordColor: §b
+
 # If the plugin should use the following question types.
 # default: true
 enableMathQuestions: true
 # default: true
 enableCustomQuestions: true
+# default: true
+enableShuffledWordQuestions: true
+# default: true
+enableTypeWordQuestions: true
+
+# If the question should be announced beforehand.
+# default: false
+enableRandomQuestionAnnouncement: true
+
+# Time in seconds the announcement should be posted before the question.
+# Must be higher than DelayBetweenQuestions.
+# default: 15
+RandomQuestionAnnouncementTimer: 15
 
 # Percent chance to actually ask a question, or to skip.
 # If the percent chance is on 50, each time the delay is done it will have a 50% chance of actuallly asking a question.
@@ -87,15 +111,9 @@ MultiplyQuestionMaxValue: 25
 #------------ Not fully implemented yet. ignore for now ------------#
 #-------------------------------------------------------------------#
 
-# Keep track of an leaderboard.
-EnableLeaderboard: false
-
-
 # The reason to use an database is for speed and efficiency.
 # Using a database on big servers increases performance.
 # On small servers you can get away with using YML files.
-# Please only use either one, not both.
-EnableYML: true
 enableMySQL: false
 
 # MySQL atabase settings

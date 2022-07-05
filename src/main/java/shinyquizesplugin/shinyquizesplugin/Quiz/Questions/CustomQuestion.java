@@ -19,4 +19,9 @@ public class CustomQuestion implements Question{
     public String getQuestion() {
         return question;
     }
+
+    @Override
+    public String getFailedMessage(String highlightColor) {
+        return "Helaas, niemand heeft het geraden. Het juiste antwoord was: "+highlightColor+getAnswer()+"§f.";
+    }
 }

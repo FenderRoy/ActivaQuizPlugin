@@ -1,9 +1,9 @@
 package shinyquizesplugin.shinyquizesplugin.Quiz;
 
+import org.bukkit.ChatColor;
 import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
 import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.CustomQuestion;
 import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.Question;
-import org.bukkit.ChatColor;
 
 import java.io.*;
 import java.nio.charset.Charset;
@@ -23,7 +23,7 @@ public class CustomQuestionsManager {
 
     public static void getCustomQuestionsFromFile(){
 
-        path = PLUGIN.getDataFolder().getAbsolutePath()+ "/defaults/defaultCustomQuestions.txt";
+        path = PLUGIN.getDataFolder().getAbsolutePath()+ "/CustomQuestions.txt";
         customQuestionList.clear();
         customQuestionListOriginal.clear();
 
@@ -36,8 +36,8 @@ public class CustomQuestionsManager {
                     ServerCommunicator.sendConsoleMessage("Custom questions file aangemaakt.");
                 } else {
                     ServerCommunicator.sendConsoleMessage("Custom questions file niet kunnen aanmaken.");
+                    return;
                 }
-                return;
             }
 
             FileReader reader = new FileReader(path);

@@ -1,8 +1,9 @@
 package shinyquizesplugin.shinyquizesplugin.Mangers;
 
-import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
+import shinyquizesplugin.shinyquizesplugin.Leaderboard.LeaderboardManager;
+import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
 
 import static shinyquizesplugin.shinyquizesplugin.ShinyQuizesPlugin.PLUGIN;
 
@@ -22,6 +23,22 @@ public class ConfigManager {
         config.addDefault("enableMathQuestions", true);
         config.addDefault("enableCustomQuestions", true);
         config.addDefault("enableRandomQuestions", true);
+        config.addDefault("GiveRandomRewardOnCorrectAnswer", true);
+        config.addDefault("enableTypeWordQuestions", true);
+        config.addDefault("enableShuffledWordQuestions", true);
+        config.addDefault("HighlightedWordColor", "§b");
+        config.addDefault("EnableLeaderboard", true);
+
+        config.addDefault("enableRandomQuestionAnnouncement", true);
+        config.addDefault("RandomQuestionAnnouncementTimer", 15);
+
+        config.addDefault("enableMySQL", false);
+        config.addDefault("DatabaseIPAdress", "1.1.1.1:3306");
+        config.addDefault("DatabaseName", "ShinyQuizesLeaderboard");
+        config.addDefault("DatabaseUsername", "Username");
+        config.addDefault("DatabasePassword", "Password");
+
+
     }
     public static void initializeConfig(){
 
@@ -32,6 +49,8 @@ public class ConfigManager {
 
         config.options().copyDefaults(true);
         PLUGIN.saveConfig();
+
+        LeaderboardManager.initialize();
 
         ServerCommunicator.sendConsoleMessage(ChatColor.GREEN+"Config loaded succesfully.");
     }

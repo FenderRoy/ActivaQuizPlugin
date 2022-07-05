@@ -1,11 +1,11 @@
 package shinyquizesplugin.shinyquizesplugin.Commands;
 
-import shinyquizesplugin.shinyquizesplugin.Commands.ActivaCommands.ShinyQuizesQuestionCommand;
-import shinyquizesplugin.shinyquizesplugin.Commands.ActivaCommands.ShinyQuizesReloadCommand;
-import shinyquizesplugin.shinyquizesplugin.Mangers.QuestionAskerManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import shinyquizesplugin.shinyquizesplugin.Commands.ActivaCommands.*;
+import shinyquizesplugin.shinyquizesplugin.Leaderboard.LeaderboardManager;
+import shinyquizesplugin.shinyquizesplugin.Mangers.QuestionAskerManager;
 
 public class ShinyQuizesPluginCommand implements CommandExecutor {
     @Override
@@ -15,13 +15,22 @@ public class ShinyQuizesPluginCommand implements CommandExecutor {
 
         switch(args[0].toLowerCase()){
             case "reload":
-                new ShinyQuizesReloadCommand().executeCommand(sender,label,args);
+                if(sender.hasPermission("ShinyQuizes.reload")) new ShinyQuizesReloadCommand().executeCommand(sender,label,args);
                 break;
             case "askrandomquestion":
-                QuestionAskerManager.askRandomQuestion(100);
+                if(sender.hasPermission("ShinyQuizes.askQuestions")) QuestionAskerManager.askRandomQuestion();
                 break;
             case "cancelquestion":
-                new ShinyQuizesQuestionCommand().executeCommand(sender,label,args);
+                if(sender.hasPermission("ShinyQuizes.cancelQuestions")) new ShinyQuizesQuestionCommand().executeCommand(sender,label,args);
+                break;
+            case "wins":
+                if(sender.hasPermission("ShinyQuizes.QuizWins")) new ShinyQuizesWinsCommand().executeCommand(sender,label,args);
+                break;
+            case "leaderboard":
+                if(sender.hasPermission("ShinyQuizes.QuizLeaderboard")) new QuizLeaderboardCommand().onCommand(sender,command,label,args);
+                break;
+            case "askquestion":
+                if(sender.hasPermission("ShinyQuizes.askQuestions")) new ShinyQuizAskQuestionCommand().executeCommand(sender,label,args);
                 break;
             default:
                 return false;

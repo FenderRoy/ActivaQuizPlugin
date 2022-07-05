@@ -6,19 +6,15 @@ authors: [ Fender ]
 description: ShinyQuizes is a plugin to generate random quizes in chat.
 
 commands:
-  randomMathQuestion:
-    description: Ask a random math question in chat.
-    usage: /randomMathQuestion
-    permission: ShinyQuizes.randomMathQuestion
-  cancelCurrentQuestion:
-    description: Cancels the current question.
-    usage: /cancelCurrentQuestion
-    permission: ShinyQuizes.cancelCurrentQuestion
   ShinyQuizes:
     description: Plugin specific commands.
     usage: /ShinyQuizes
-    permission: ShinyQuizes.ShinyQuizesPlugin
-  randomCustomQuestion:
-    description: Ask a random custom question in chat.
-    usage: /randomCustomQuestion
-    permission: ShinyQuizes.randomCustomQuestion
+    permission: ShinyQuizes.ShinyQuizes
+  QuizWins:
+    description: Checks how many wins someone has.
+    usage: /QuizWins
+    permission: ShinyQuizes.QuizWins
+  QuizLeaderboard:
+    description: See the wins leaderboard.
+    usage: /QuizLeaderboard
+    permission: ShinyQuizes.QuizLeaderboard

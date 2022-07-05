@@ -1,11 +1,13 @@
 package shinyquizesplugin.shinyquizesplugin.handlers;
 
-import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
-import shinyquizesplugin.shinyquizesplugin.Quiz.ActiveQuizInformation;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
+import shinyquizesplugin.shinyquizesplugin.Leaderboard.PlayerWinManager;
+import shinyquizesplugin.shinyquizesplugin.Quiz.ActiveQuizInformation;
+import shinyquizesplugin.shinyquizesplugin.rewards.RewardGiver;
 
 import java.util.Locale;
 
@@ -20,8 +22,9 @@ public class CheckChatMessageHandler implements Listener {
         if(msg.equals(ActiveQuizInformation.getQuestion().getAnswer().toLowerCase())){
             ServerCommunicator.sendChatMessage(event.getPlayer().getName()+ " heeft het correct!");
             event.setCancelled(true);
+            PlayerWinManager.addWin(event.getPlayer(), 1);
+            RewardGiver.giveReward(event.getPlayer());
             ActiveQuizInformation.setActive(false);
         }
     }
-
 }

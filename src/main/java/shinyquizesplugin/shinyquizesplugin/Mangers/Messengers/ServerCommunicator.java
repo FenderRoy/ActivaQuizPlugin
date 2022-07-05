@@ -1,9 +1,9 @@
 package shinyquizesplugin.shinyquizesplugin.Mangers.Messengers;
 
-import shinyquizesplugin.shinyquizesplugin.Mangers.ConfigManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
+import shinyquizesplugin.shinyquizesplugin.Mangers.ConfigManager;
 
 public class ServerCommunicator {
 
@@ -19,18 +19,21 @@ public class ServerCommunicator {
 
         String prefix = ConfigManager.getConfig().getString("ChatPrefix");
         String coloredPrefix = ChatColor.translateAlternateColorCodes('&',prefix);
-        ServerCommunicator.chatPrefix = ChatColor.GRAY+"["+coloredPrefix+ChatColor.GRAY+"]"+ChatColor.WHITE+": ";
+        ServerCommunicator.chatPrefix = ChatColor.GRAY+"["+coloredPrefix+ChatColor.GRAY+"]"+ChatColor.WHITE;
     }
     public static void sendConsoleMessage(String message){
-        Bukkit.getServer().getConsoleSender().sendMessage(consolePrefix + message);
+        Bukkit.getServer().getConsoleSender().sendMessage(consolePrefix+": " + message);
     }
 
     public static void sendChatMessage(String message){
-        Bukkit.getServer().broadcastMessage(chatPrefix + message);
+        Bukkit.getServer().broadcastMessage(chatPrefix+": " + message);
     }
 
     public static void sendChatMessageToPlayer(Player player, String message){
-        player.sendMessage(chatPrefix + message);
+        player.sendMessage(chatPrefix+": " + message);
     }
 
+    public static String getChatPrefix() {
+        return chatPrefix;
+    }
 }

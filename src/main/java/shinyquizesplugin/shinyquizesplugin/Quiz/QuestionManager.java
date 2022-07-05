@@ -9,7 +9,7 @@ import static shinyquizesplugin.shinyquizesplugin.ShinyQuizesPlugin.PLUGIN;
 public class QuestionManager {
 
     public static void createQuestion(Question question){
-        ServerCommunicator.sendChatMessage("Vraag! "+question.getQuestion());
+        ServerCommunicator.sendChatMessage("Snel! "+question.getQuestion());
         ServerCommunicator.sendConsoleMessage("Het juiste antwoord is: "+ question.getAnswer());
         ActiveQuizInformation.setQuestion(question);
 

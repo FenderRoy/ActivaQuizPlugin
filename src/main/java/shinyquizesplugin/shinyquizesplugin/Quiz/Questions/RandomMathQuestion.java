@@ -65,4 +65,9 @@ public class RandomMathQuestion implements Question {
     public String getQuestion() {
         return "Wat is "+ num1+" "+operator+" "+num2 +"?";
     }
+
+    @Override
+    public String getFailedMessage(String highlightColor) {
+        return "Helaas, was net iets te moeilijk. Het antwoord was: "+highlightColor+getAnswer()+"§f.";
+    }
 }
