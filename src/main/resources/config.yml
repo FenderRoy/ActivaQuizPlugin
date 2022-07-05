@@ -1,58 +1,106 @@
-# Activa Quiz Plugin.
+#-------------------------------------------------------------------#
+#--------------------------  Shiny Quizes --------------------------#
+#-------------------------------------------------------------------#
 # Developed by: Fender
-
-# Algemene waardes.
-ChatPrefix: Activa Kingdoms
+# Part of the Shiny development branch.
 
 
-# Algemene Vraag waardes.
+#-------------------------------------------------------------------#
+#-------------------------  General Values -------------------------#
+#-------------------------------------------------------------------#
 
-# Tijd in secondes dat de vraag actief is.
-# Als er niet word gereageerd in deze tijd word de vraag geannuleerd.
-VraagTimeOutDelay: 30
+# Chat Prefix.
+# Use the § character for color codes.
+# ---dont use &---
+# default: §5Shiny §dQuizes
+ChatPrefix: §5Shiny §dQuizes
 
-#Tijd in seconden tussen het automatisch stellen van vragen.
-DelayTussenVragen: 300
 
-#Gebruik de volgende soorten vragen in een random vraag.
-enableWiskundeVragen: true
-enableCustomVragen: true;
+#-------------------------------------------------------------------#
+#------------------------  Random Questions ------------------------#
+#-------------------------------------------------------------------#
 
-#Procent kans om daadwerkelijk een vraag te stellen, of om over te slaan.
-#Dit kan ervoor zorgen voor extra "randomness" van vragen.
-#Voorbeeld: elke X aantal minuten een 50% kans op een vraag.
-ProcentKansOpVraag: 100
+# General Question Values.
 
-# RekenSommen
-# De Max values zijn de hoogste nummers die in een som mogen voorkomen.
-# Voorbeeld:
-# PlusGetalMaxValue = 600
-# Random som kan zijn: Wat is: 600 + 214?
-# Maar de som kan niet een getal boven de 600 hebben.
+# If the plugin should ask random questions.
+# default: true
+enableRandomQuestions: true
 
-# Plus Sommen
-PlusGetalMaxValue: 150
+# Time in seconds that the question is active.
+# If there is no correct answer in the given time the question gets cancelled.
+# and the answer is revealed.
+# default: 30
+QuestionTimeOutDelay: 30
 
-# Min Sommen
-MinGetalMaxValue: 100
-MinSomAntwoordMagInDeMin: true
+# Time in seconds between automatically asking a question.
+# default: 90
+DelayBetweenQuestions: 90
 
-# Keer Sommen.
-KeerGetalMaxValue: 25
+# If the plugin should use the following question types.
+# default: true
+enableMathQuestions: true
+# default: true
+enableCustomQuestions: true
+
+# Percent chance to actually ask a question, or to skip.
+# If the percent chance is on 50, each time the delay is done it will have a 50% chance of actuallly asking a question.
+# This can create more 'randomness' between questions.
+# default: 33
+PercentChanceForQuestion: 33
+
+
+
+
+
+#-------------------------------------------------------------------#
+#-------------------------  Math Questions -------------------------#
+#-------------------------------------------------------------------#
+
+# Math questions.
+# The max values are the highest numbers that can be possible inside of a question.
+# For example:
+#
+# If the PlusMaxValue is on 600, an example question can be:
+# 600 + 214
+# Either values can't go above 600. The answer can.
+
+# Plus Questions
+# default: 150
+PlusQuestionMaxValue: 150
+
+# Minus Questions
+# default: 100
+MinusQuestionMaxValue: 100
+# If the answer of a minus question can be negative.
+# For example: 20 - 84 = -64
+# default: true
+MinusQuestionAnswerCanBeNegative: true
+
+# Multiplicity Questions.
+# default: 25
+MultiplyQuestionMaxValue: 25
+
+
+
 
 #-------------------------------------------------------------------#
 #------------ Not fully implemented yet. ignore for now ------------#
 #-------------------------------------------------------------------#
 
-#Gebruik maken van een leaderboard.
+# Keep track of an leaderboard.
 EnableLeaderboard: false
 
-#Gebruik a.u.b. maar 1.
+
+# The reason to use an database is for speed and efficiency.
+# Using a database on big servers increases performance.
+# On small servers you can get away with using YML files.
+# Please only use either one, not both.
 EnableYML: true
 enableMySQL: false
 
-#MySQL atabase settings
-DatabaseIPAdress: 192.168.1.27:3306
-DatabaseName: ActivaQuizLeaderboard
+# MySQL atabase settings
+# Only important if enableMySQL is on true.
+DatabaseIPAdress: 1.1.1.1:3306
+DatabaseName: ShinyQuizesLeaderboard
 DatabaseUsername: Username
 DatabasePassword: Password

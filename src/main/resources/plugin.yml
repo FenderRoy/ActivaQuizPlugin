@@ -1,25 +1,24 @@
-name: ActivaQuizPlugin
+name: ShinyQuizes
 version: '${project.version}'
-main: activaquizplugin.activaquizplugin.ActivaQuizPlugin
+main: shinyquizesplugin.shinyquizesplugin.ShinyQuizesPlugin
 api-version: 1.19
 authors: [ Fender ]
-description: Activa Kingdom's official Quiz Plugin.
-website: https://activakingdoms.nl
+description: ShinyQuizes is a plugin to generate random quizes in chat.
 
 commands:
-  randomWiskundeVraag:
-    description: Stel een random wiskunde vraag in de chat.
-    usage: /randomWiskundeVraag
-    permission: ActivaQuizPlugin.randomWiskundeVraag
-  annuleerHuidigeVraag:
-    description: Annuleert de huidige vraag.
-    usage: /annuleerHuidigeVraag
-    permission: ActivaQuizPlugin.annuleerHuidigeVraag
-  ActivaQuizPlugin:
+  randomMathQuestion:
+    description: Ask a random math question in chat.
+    usage: /randomMathQuestion
+    permission: ShinyQuizes.randomMathQuestion
+  cancelCurrentQuestion:
+    description: Cancels the current question.
+    usage: /cancelCurrentQuestion
+    permission: ShinyQuizes.cancelCurrentQuestion
+  ShinyQuizes:
     description: Plugin specific commands.
-    usage: /ActivaQuizPlugin
-    permission: ActivaQuizPlugin.ActivaQuizPlugin
-  randomCustomVraag:
-    description: Stel een random custom vraag in de chat.
-    usage: /randomCustomVraag
-    permission: ActivaQuizPlugin.randomCustomVraag
+    usage: /ShinyQuizes
+    permission: ShinyQuizes.ShinyQuizesPlugin
+  randomCustomQuestion:
+    description: Ask a random custom question in chat.
+    usage: /randomCustomQuestion
+    permission: ShinyQuizes.randomCustomQuestion

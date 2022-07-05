@@ -1,0 +1,7 @@
+# Use '#' for comments.
+# Type out the question, write " -/- " after (SPACE SENSITIVE) and then the answer.
+# example: What comes after G in the alphabet? -/- H
+What comes after G in the alphabet? -/- H
+What comes after Q in the alphabet? -/- R
+Who made this plugin? -/- Fender
+What is the default screenshot button. -/- F2

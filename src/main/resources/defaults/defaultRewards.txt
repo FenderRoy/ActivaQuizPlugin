@@ -1,0 +1,7 @@
+RewardOne:
+- diamond_sword 1
+- diamond_block 10
+- diamond 30
+RewardTwo:
+- iron_ingot 64
+- light_blue_stained_glass 2
