@@ -26,6 +26,7 @@ public class ConfigManager {
         config.addDefault("GiveRandomRewardOnCorrectAnswer", true);
         config.addDefault("enableTypeWordQuestions", true);
         config.addDefault("enableShuffledWordQuestions", true);
+        config.addDefault("enableAcronymWordQuestions", true);
         config.addDefault("HighlightedWordColor", "§b");
         config.addDefault("EnableLeaderboard", true);
 

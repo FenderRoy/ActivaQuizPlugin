@@ -7,9 +7,10 @@ import shinyquizesplugin.shinyquizesplugin.Leaderboard.LeaderboardManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.ConfigManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
 import shinyquizesplugin.shinyquizesplugin.Mangers.QuestionAskerManager;
-import shinyquizesplugin.shinyquizesplugin.Quiz.CustomQuestionsManager;
-import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.ShuffledWordQuestionManager;
-import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.TypeWordQuestionManager;
+import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.AcronymQuestion.AcronymQuestionsManager;
+import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.CustomQuestions.CustomQuestionsManager;
+import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.ShuffledQuestions.ShuffledWordQuestionManager;
+import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.TypeQuestions.TypeWordQuestionManager;
 import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.questionGetters.RandomQuestionManager;
 import shinyquizesplugin.shinyquizesplugin.rewards.RewardManager;
 
@@ -53,6 +54,10 @@ public class ShinyQuizesReloadCommand implements ShinyQuizesCommand {
                 reloadTypeWordQuestions();
                 sendMessage(getFormattedMessage("Type", TypeWordQuestionManager.typeWordListOriginal.size()));
                 break;
+            case "acronymquestions":
+                reloadAcronymQuestions();
+                sendMessage(getFormattedMessage("Acronym",AcronymQuestionsManager.getCustomQuestionList().size()));
+                break;
         }
         return true;
     }
@@ -91,6 +96,10 @@ public class ShinyQuizesReloadCommand implements ShinyQuizesCommand {
         CustomQuestionsManager.getCustomQuestionsFromFile();
     }
 
+    private void reloadAcronymQuestions(){
+        AcronymQuestionsManager.getCustomQuestionsFromFile();
+    }
+
     private void reloadShuffledWordQuestions(){
         ShuffledWordQuestionManager.initialize();
     }
@@ -103,8 +112,9 @@ public class ShinyQuizesReloadCommand implements ShinyQuizesCommand {
         RewardManager.initializeRewards();
     }
 
-    private void reloadAll(){
+    public void reloadAll(){
         CustomQuestionsManager.getCustomQuestionsFromFile();
+        AcronymQuestionsManager.getCustomQuestionsFromFile();
         ShuffledWordQuestionManager.initialize();
         TypeWordQuestionManager.initialize();
 

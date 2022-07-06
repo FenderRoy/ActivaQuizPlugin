@@ -1,7 +1,9 @@
-package shinyquizesplugin.shinyquizesplugin.Quiz.Questions;
+package shinyquizesplugin.shinyquizesplugin.Quiz.Questions.ShuffledQuestions;
 
 import org.bukkit.ChatColor;
 import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
+import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.Question;
+import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.QuestionManager;
 
 import java.io.*;
 import java.nio.charset.Charset;

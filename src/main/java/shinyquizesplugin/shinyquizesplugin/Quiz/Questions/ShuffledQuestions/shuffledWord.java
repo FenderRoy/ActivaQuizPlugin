@@ -1,12 +1,13 @@
-package shinyquizesplugin.shinyquizesplugin.Quiz.Questions;
+package shinyquizesplugin.shinyquizesplugin.Quiz.Questions.ShuffledQuestions;
 
 import org.bukkit.ChatColor;
 import shinyquizesplugin.Languages.LanguageManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.ConfigManager;
+import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.Question;
 
 import java.util.Random;
 
-public class shuffledWord implements Question{
+public class shuffledWord implements Question {
 
     private final String word;
 
@@ -22,7 +23,8 @@ public class shuffledWord implements Question{
     @Override
     public String getQuestion() {
         String color = ConfigManager.getConfig().getString("HighlightedWordColor");
-        return "Eerste persoon die het woord: "+color+scramble(word)+"§f ontcijferd wint!";
+        String str = LanguageManager.getLanguage().get("shuffledQuestionAsker");
+        return java.text.MessageFormat.format(str, color+scramble(word)+ChatColor.WHITE);
     }
 
     private String scramble(String inputString)

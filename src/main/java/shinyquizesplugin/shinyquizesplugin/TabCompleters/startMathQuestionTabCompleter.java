@@ -12,7 +12,6 @@ public class startMathQuestionTabCompleter implements TabCompleter {
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
         if(sender instanceof Player){
-            Player player = (Player) sender;
             List<String> completions = new ArrayList<>();
             completions.add("plusSom");
             completions.add("minSom");

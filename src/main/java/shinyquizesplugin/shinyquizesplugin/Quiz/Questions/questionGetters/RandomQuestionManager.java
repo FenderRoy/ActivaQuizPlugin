@@ -4,9 +4,10 @@ import org.bukkit.configuration.file.FileConfiguration;
 import shinyquizesplugin.Languages.LanguageManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.ConfigManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
-import shinyquizesplugin.shinyquizesplugin.Quiz.CustomQuestionsManager;
-import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.ShuffledWordQuestionManager;
-import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.TypeWordQuestionManager;
+import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.AcronymQuestion.AcronymQuestionsManager;
+import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.CustomQuestions.CustomQuestionsManager;
+import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.ShuffledQuestions.ShuffledWordQuestionManager;
+import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.TypeQuestions.TypeWordQuestionManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,7 @@ public class RandomQuestionManager {
         if(config.getBoolean("enableCustomQuestions") && !CustomQuestionsManager.getCustomQuestionList().isEmpty()) activeQuestions.add(new CustomQuestionGetter());
         if(config.getBoolean("enableShuffledWordQuestions") && !ShuffledWordQuestionManager.shuffledWordList.isEmpty()) activeQuestions.add(new ShuffledWordGetter());
         if(config.getBoolean("enableTypeWordQuestions") && !TypeWordQuestionManager.typeWordList.isEmpty()) activeQuestions.add(new TypedWordGetter());
+        if(config.getBoolean("enableAcronymWordQuestions") && !AcronymQuestionsManager.getCustomQuestionList().isEmpty()) activeQuestions.add(new AcronymQuestionGetter());
 
 
         String str = LanguageManager.getLanguage().get("questionReloaded");

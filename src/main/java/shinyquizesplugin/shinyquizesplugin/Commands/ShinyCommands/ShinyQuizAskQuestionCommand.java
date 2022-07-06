@@ -6,11 +6,12 @@ import shinyquizesplugin.Languages.LanguageManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
 import shinyquizesplugin.shinyquizesplugin.Mangers.QuestionAskerManager;
 import shinyquizesplugin.shinyquizesplugin.Quiz.ActiveQuizInformation;
-import shinyquizesplugin.shinyquizesplugin.Quiz.CustomQuestionsManager;
+import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.AcronymQuestion.AcronymQuestionsManager;
+import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.CustomQuestions.CustomQuestionsManager;
 import shinyquizesplugin.shinyquizesplugin.Quiz.QuestionManager;
-import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.RandomMathQuestion;
-import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.ShuffledWordQuestionManager;
-import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.TypeWordQuestionManager;
+import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.MathQuestions.RandomMathQuestion;
+import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.ShuffledQuestions.ShuffledWordQuestionManager;
+import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.TypeQuestions.TypeWordQuestionManager;
 
 public class ShinyQuizAskQuestionCommand implements ShinyQuizesCommand{
     @Override
@@ -41,6 +42,9 @@ public class ShinyQuizAskQuestionCommand implements ShinyQuizesCommand{
                 break;
             case "typequestion":
                 askTypeQuestion(sender);
+                break;
+            case "acronymquestion":
+                askAcronymQuestion(sender);
                 break;
         }
         return true;
@@ -100,6 +104,15 @@ public class ShinyQuizAskQuestionCommand implements ShinyQuizesCommand{
     private String getMessageString(String type){
         String message = LanguageManager.getLanguage().get("noAvailableQuestions");
         return java.text.MessageFormat.format(message, type);
+    }
+
+    private void askAcronymQuestion(CommandSender sender){
+        if(!AcronymQuestionsManager.getCustomQuestionList().isEmpty()){
+            QuestionManager.createQuestion(AcronymQuestionsManager.getRandomQuestion());
+        } else {
+            if(sender instanceof Player) ServerCommunicator.sendChatMessageToPlayer((Player) sender, getMessageString("acronym"));
+            else ServerCommunicator.sendConsoleMessage(getMessageString("acronym"));
+        }
     }
 
 }

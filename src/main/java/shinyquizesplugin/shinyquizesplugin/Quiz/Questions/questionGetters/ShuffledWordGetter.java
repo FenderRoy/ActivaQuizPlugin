@@ -1,7 +1,7 @@
 package shinyquizesplugin.shinyquizesplugin.Quiz.Questions.questionGetters;
 
 import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.Question;
-import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.ShuffledWordQuestionManager;
+import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.ShuffledQuestions.ShuffledWordQuestionManager;
 
 public class ShuffledWordGetter implements questionGetter{
     @Override

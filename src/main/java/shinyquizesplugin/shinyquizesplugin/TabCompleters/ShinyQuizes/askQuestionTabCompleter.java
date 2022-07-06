@@ -17,6 +17,7 @@ public class askQuestionTabCompleter implements subcommand{
             completions.add("MathQuestion");
             completions.add("ShuffledQuestion");
             completions.add("TypeQuestion");
+            completions.add("AcronymQuestion");
 
         }
         switch(args[1].toLowerCase()){

@@ -23,7 +23,7 @@ public class QuestionAskerManager {
         if(ConfigManager.getConfig().getBoolean("enableRandomQuestions")) {
             int cd = ConfigManager.getConfig().getInt("RandomQuestionAnnouncementTimer");
             int announcementDelay = delay - cd;
-            PLUGIN.getServer().getScheduler().scheduleSyncDelayedTask(PLUGIN, () -> announceQuestion(cd), 20L * announcementDelay);
+            if(ConfigManager.getConfig().getBoolean("enableRandomQuestionAnnouncement")) PLUGIN.getServer().getScheduler().scheduleSyncDelayedTask(PLUGIN, () -> announceQuestion(cd), 20L * announcementDelay);
             PLUGIN.getServer().getScheduler().scheduleSyncDelayedTask(PLUGIN, () -> askRandomQuestionWithRepeat(delay, true), 20L *delay);
         }
     }
@@ -31,9 +31,8 @@ public class QuestionAskerManager {
 
     private static void askRandomQuestionWithRepeat(int delay, boolean send){
 
-        if(ActiveQuizInformation.isActive()) return;
 
-        if(send) askRandomQuestion();
+        if(send && !ActiveQuizInformation.isActive()) askRandomQuestion();
 
         boolean sendNextQuestion = sendNextQuestion(percentChance);
 

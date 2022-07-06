@@ -1,9 +1,10 @@
-package shinyquizesplugin.shinyquizesplugin.Quiz.Questions;
+package shinyquizesplugin.shinyquizesplugin.Quiz.Questions.CustomQuestions;
 
 import org.bukkit.ChatColor;
 import shinyquizesplugin.Languages.LanguageManager;
+import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.Question;
 
-public class CustomQuestion implements Question{
+public class CustomQuestion implements Question {
 
     private final String question;
     private final String answer;

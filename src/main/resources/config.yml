@@ -16,7 +16,8 @@
 ChatPrefix: §5Shiny §dQuizes
 
 # Language to use
-# default: Dutch
+# Languages can be found / created in the language folder.
+# default: english.properties
 Language: english.properties
 
 # Keep track of a leaderboard.
@@ -60,6 +61,8 @@ enableCustomQuestions: true
 enableShuffledWordQuestions: true
 # default: true
 enableTypeWordQuestions: true
+# default: true
+enableAcronymWordQuestions: true
 
 # If the question should be announced beforehand.
 # default: false

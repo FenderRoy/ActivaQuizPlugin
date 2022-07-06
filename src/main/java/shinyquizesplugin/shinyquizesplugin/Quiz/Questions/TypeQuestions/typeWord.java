@@ -1,9 +1,11 @@
-package shinyquizesplugin.shinyquizesplugin.Quiz.Questions;
+package shinyquizesplugin.shinyquizesplugin.Quiz.Questions.TypeQuestions;
 
+import org.bukkit.ChatColor;
 import shinyquizesplugin.Languages.LanguageManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.ConfigManager;
+import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.Question;
 
-public class typeWord implements Question{
+public class typeWord implements Question {
 
     private final String word;
 
@@ -17,9 +19,9 @@ public class typeWord implements Question{
 
     @Override
     public String getQuestion() {
-
         String color = ConfigManager.getConfig().getString("HighlightedWordColor");
-        return "type het woord "+color+word+"§f!";
+        String str = LanguageManager.getLanguage().get("typeQuestionAsker");
+        return java.text.MessageFormat.format(str, color+word+ ChatColor.WHITE);
     }
 
     @Override

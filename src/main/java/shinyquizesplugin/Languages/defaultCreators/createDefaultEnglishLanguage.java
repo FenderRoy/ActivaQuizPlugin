@@ -37,6 +37,12 @@ public class createDefaultEnglishLanguage implements IDefaultLanguageCreator{
         p.setProperty("mathQuestionCancelled","I guess this one was too hard, the answer was: {0}.");
         p.setProperty("shuffledQuestionCancelled","Noone deciphered it.. The word was: {0}.");
         p.setProperty("typeQuestionFailed","Noone was fast enough.");
+        p.setProperty("AcronymQuestionFailed","Noone knew this one, it means: {0}");
+
+        p.setProperty("mathQuestionAsker","What is {0}?");
+        p.setProperty("shuffledQuestionAsker","Decipher the word {0}.");
+        p.setProperty("typeQuestionAsker","Type the word {0} as fast as possible!");
+        p.setProperty("AcronymQuestionAsker","What is the meaning of the acronym {0}?");
 
         p.setProperty("questionPrefix","Quickly! ");
         p.setProperty("consoleQuestionAnswered","The correct answer is: ");

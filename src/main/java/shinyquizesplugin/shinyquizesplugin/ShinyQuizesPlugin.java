@@ -10,9 +10,10 @@ import shinyquizesplugin.shinyquizesplugin.Mangers.ConfigManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.HandlersManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
 import shinyquizesplugin.shinyquizesplugin.Mangers.QuestionAskerManager;
-import shinyquizesplugin.shinyquizesplugin.Quiz.CustomQuestionsManager;
-import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.ShuffledWordQuestionManager;
-import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.TypeWordQuestionManager;
+import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.AcronymQuestion.AcronymQuestionsManager;
+import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.CustomQuestions.CustomQuestionsManager;
+import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.ShuffledQuestions.ShuffledWordQuestionManager;
+import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.TypeQuestions.TypeWordQuestionManager;
 import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.questionGetters.RandomQuestionManager;
 import shinyquizesplugin.shinyquizesplugin.rewards.RewardManager;
 
@@ -27,8 +28,6 @@ public final class ShinyQuizesPlugin extends JavaPlugin {
         FileManager.createFiles();
         LanguageManager.initialize();
 
-
-
         LanguageManager.loadLanguage(ConfigManager.getConfig().getString("Language"));
         ServerCommunicator.initialize();
 
@@ -38,14 +37,17 @@ public final class ShinyQuizesPlugin extends JavaPlugin {
         CustomQuestionsManager.getCustomQuestionsFromFile();
         ShuffledWordQuestionManager.initialize();
         TypeWordQuestionManager.initialize();
+        AcronymQuestionsManager.getCustomQuestionsFromFile();
         RewardManager.initializeRewards();
         RandomQuestionManager.initialize();
 
         PlayerWinManager.loadWinValues();
 
+        QuestionAskerManager.start();
+
         ServerCommunicator.sendConsoleMessage(ChatColor.GREEN + "Plugin loaded.");
 
-        QuestionAskerManager.start();
+
     }
 
     @Override

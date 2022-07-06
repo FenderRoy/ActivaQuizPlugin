@@ -1,8 +1,9 @@
-package shinyquizesplugin.shinyquizesplugin.Quiz.Questions;
+package shinyquizesplugin.shinyquizesplugin.Quiz.Questions.MathQuestions;
 
 import org.bukkit.ChatColor;
 import shinyquizesplugin.Languages.LanguageManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.ConfigManager;
+import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.Question;
 
 public class RandomMathQuestion implements Question {
 
@@ -65,7 +66,9 @@ public class RandomMathQuestion implements Question {
 
     @Override
     public String getQuestion() {
-        return "Wat is "+ num1+" "+operator+" "+num2 +"?";
+        String color = ConfigManager.getConfig().getString("HighlightedWordColor");
+        String str = LanguageManager.getLanguage().get("mathQuestionAsker");
+        return java.text.MessageFormat.format(str, color+num1 + " "+operator+" "+num2+ChatColor.WHITE);
     }
 
     @Override

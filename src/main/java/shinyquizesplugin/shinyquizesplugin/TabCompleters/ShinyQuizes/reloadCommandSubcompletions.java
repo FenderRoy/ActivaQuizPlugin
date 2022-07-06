@@ -16,6 +16,7 @@ public class reloadCommandSubcompletions implements subcommand{
         completions.add("CustomQuestions");
         completions.add("ShuffledWords");
         completions.add("TypeWords");
+        completions.add("AcronymQuestions");
         return completions;
     }
 }

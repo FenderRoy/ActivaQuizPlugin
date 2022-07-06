@@ -2,7 +2,7 @@ package shinyquizesplugin.shinyquizesplugin.Quiz.Questions.questionGetters;
 
 import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.Question;
 
-import static shinyquizesplugin.shinyquizesplugin.Quiz.CustomQuestionsManager.getRandomQuestion;
+import static shinyquizesplugin.shinyquizesplugin.Quiz.Questions.CustomQuestions.CustomQuestionsManager.getRandomQuestion;
 
 public class CustomQuestionGetter implements questionGetter {
 
