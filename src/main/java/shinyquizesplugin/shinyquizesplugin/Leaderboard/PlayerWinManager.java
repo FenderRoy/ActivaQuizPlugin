@@ -3,18 +3,24 @@ package shinyquizesplugin.shinyquizesplugin.Leaderboard;
 import org.bukkit.entity.Player;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+import java.util.UUID;
 
 import static shinyquizesplugin.shinyquizesplugin.ShinyQuizesPlugin.PLUGIN;
 
 public class PlayerWinManager {
 
     public static Map<UUID, Integer> playerWinData = new HashMap<>();
+
+    public static Integer get(UUID key){
+        playerWinData.putIfAbsent(key, 0);
+        return playerWinData.get(key);
+    }
 
     public static int getValue(UUID id){
         playerWinData.putIfAbsent(id, 0);
@@ -56,6 +62,11 @@ public class PlayerWinManager {
             properties.put(entry.getKey().toString(), entry.getValue().toString());
         }
 
+        File tempFile = new File(PLUGIN.getDataFolder().getAbsolutePath()+ "/playerdata/playerWinData.properties");
+        try {
+            if(checkIfFileExists()) tempFile.createNewFile(); // if file already exists will do nothing
+        } catch (IOException e) {
+        }
 
         try {
             properties.store(Files.newOutputStream(Paths.get(PLUGIN.getDataFolder().getAbsolutePath()+ "/playerdata/playerWinData.properties")), null);

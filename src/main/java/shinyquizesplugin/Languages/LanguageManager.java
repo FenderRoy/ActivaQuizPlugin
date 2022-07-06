@@ -1,15 +1,10 @@
 package shinyquizesplugin.Languages;
 
-import org.bukkit.event.Listener;
 import shinyquizesplugin.Languages.defaultCreators.IDefaultLanguageCreator;
 import shinyquizesplugin.Languages.defaultCreators.createDefaultDutchLangues;
 import shinyquizesplugin.Languages.defaultCreators.createDefaultEnglishLanguage;
 import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
-import shinyquizesplugin.shinyquizesplugin.handlers.CheckChatMessageHandler;
-import shinyquizesplugin.shinyquizesplugin.handlers.PlayerJoinHandler;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;

@@ -5,8 +5,8 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import shinyquizesplugin.Languages.LanguageManager;
-import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
 import shinyquizesplugin.shinyquizesplugin.Leaderboard.PlayerWinManager;
+import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
 import shinyquizesplugin.shinyquizesplugin.Quiz.ActiveQuizInformation;
 import shinyquizesplugin.shinyquizesplugin.rewards.RewardGiver;
 

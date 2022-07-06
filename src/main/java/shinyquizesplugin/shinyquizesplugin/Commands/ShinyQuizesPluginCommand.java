@@ -3,7 +3,6 @@ package shinyquizesplugin.shinyquizesplugin.Commands;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import shinyquizesplugin.shinyquizesplugin.Commands.QuizLeaderboardCommand;
 import shinyquizesplugin.shinyquizesplugin.Commands.ShinyCommands.ShinyQuizAskQuestionCommand;
 import shinyquizesplugin.shinyquizesplugin.Commands.ShinyCommands.ShinyQuizesQuestionCommand;
 import shinyquizesplugin.shinyquizesplugin.Commands.ShinyCommands.ShinyQuizesReloadCommand;

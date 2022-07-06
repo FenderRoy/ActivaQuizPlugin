@@ -19,7 +19,7 @@ public class QuizWinsCommand implements CommandExecutor {
 
             if(args.length < 1) {
                 Player player = (Player) sender;
-                int wins = PlayerWinManager.playerWinData.get(player.getUniqueId());
+                int wins = PlayerWinManager.get(player.getUniqueId());
                 ServerCommunicator.sendChatMessage(getSelfString(wins));
             } else {
                 Player player = Bukkit.getPlayer(args[0]);
@@ -27,7 +27,7 @@ public class QuizWinsCommand implements CommandExecutor {
                     ServerCommunicator.sendChatMessageToPlayer((Player) sender, LanguageManager.getLanguage().get("noValidPlayer"));
                     return true;
                 }
-                int wins = PlayerWinManager.playerWinData.get(player.getUniqueId());
+                int wins = PlayerWinManager.get(player.getUniqueId());
                 ServerCommunicator.sendChatMessage(getOtherString(player.getName(),wins));
             }
         } else {

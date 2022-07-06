@@ -1,7 +1,6 @@
 package shinyquizesplugin.shinyquizesplugin.Mangers;
 
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
 import shinyquizesplugin.shinyquizesplugin.handlers.CheckChatMessageHandler;

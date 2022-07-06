@@ -1,10 +1,6 @@
 package shinyquizesplugin.shinyquizesplugin.Leaderboard;
 
-import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
-import org.bukkit.entity.Player;
-
-import java.util.UUID;
 
 public class PlayerHolder implements Comparable<PlayerHolder> {
 

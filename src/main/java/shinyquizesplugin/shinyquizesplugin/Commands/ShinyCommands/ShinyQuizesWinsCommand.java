@@ -17,7 +17,7 @@ public class ShinyQuizesWinsCommand implements ShinyQuizesCommand{
 
             if(args.length <= 1) {
                 Player player = (Player) sender;
-                int wins = PlayerWinManager.playerWinData.get(player.getUniqueId());
+                int wins = PlayerWinManager.get(player.getUniqueId());
                 ServerCommunicator.sendChatMessage(getSelfString(wins));
             } else {
                 Player player = Bukkit.getPlayer(args[1]);
@@ -25,7 +25,7 @@ public class ShinyQuizesWinsCommand implements ShinyQuizesCommand{
                     ServerCommunicator.sendChatMessageToPlayer((Player) sender, LanguageManager.getLanguage().get("noValidPlayer"));
                     return true;
                 }
-                int wins = PlayerWinManager.playerWinData.get(player.getUniqueId());
+                int wins = PlayerWinManager.get(player.getUniqueId());
 
                 ServerCommunicator.sendChatMessage(getOtherString(player.getName(),wins));
             }

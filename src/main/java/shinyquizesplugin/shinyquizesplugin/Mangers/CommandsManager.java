@@ -1,7 +1,7 @@
 package shinyquizesplugin.shinyquizesplugin.Mangers;
 
-import shinyquizesplugin.shinyquizesplugin.Commands.*;
 import shinyquizesplugin.shinyquizesplugin.Commands.QuizLeaderboardCommand;
+import shinyquizesplugin.shinyquizesplugin.Commands.QuizWinsCommand;
 import shinyquizesplugin.shinyquizesplugin.Commands.ShinyQuizesPluginCommand;
 import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
 import shinyquizesplugin.shinyquizesplugin.TabCompleters.QuizWinsTabCompleter;

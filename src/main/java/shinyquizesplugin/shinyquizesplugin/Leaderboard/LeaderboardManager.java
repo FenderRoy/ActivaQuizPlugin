@@ -3,14 +3,14 @@ package shinyquizesplugin.shinyquizesplugin.Leaderboard;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
-import org.bukkit.Server;
 import org.bukkit.entity.Player;
 import shinyquizesplugin.Languages.LanguageManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.ConfigManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
 
-import java.util.*;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import static shinyquizesplugin.shinyquizesplugin.ShinyQuizesPlugin.PLUGIN;
 
@@ -37,7 +37,6 @@ public class LeaderboardManager {
             player.sendMessage(ChatColor.GRAY + "---------- " + ServerCommunicator.getChatPrefix() + ChatColor.GRAY + " ----------");
             player.sendMessage(ChatColor.GRAY + LanguageManager.getLanguage().get("mostQuizWins"));
             int max = 0;
-            System.out.println(players.size());
             for (int i = 0; i < players.size(); i++) {
                 if (max >= 10) break;
                 if(players.get(i).getPlayer() == null) continue;
@@ -51,9 +50,6 @@ public class LeaderboardManager {
     private static List<PlayerHolder> getPlayerLeaderboard() {
 
         List<PlayerHolder> players = new ArrayList<>();
-//        for(UUID id : PlayerWinManager.playerWinData.keySet()){
-//            players.add(new PlayerHolder(id, PlayerWinManager.playerWinData.get(id)));
-//        }
 
         for(OfflinePlayer player : Bukkit.getOfflinePlayers()){
             players.add(new PlayerHolder(player, PlayerWinManager.getValue(player.getUniqueId())));
