@@ -4,6 +4,7 @@ import org.bukkit.ChatColor;
 import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
 import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.CustomQuestion;
 import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.Question;
+import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.QuestionManager;
 
 import java.io.*;
 import java.nio.charset.Charset;
@@ -33,9 +34,9 @@ public class CustomQuestionsManager {
                 File questionFile = new File(path);
                 if(questionFile.createNewFile()){
                     initializeDefaultQuestionsInFile(questionFile);
-                    ServerCommunicator.sendConsoleMessage("Custom questions file aangemaakt.");
+                    ServerCommunicator.sendConsoleMessage(QuestionManager.fileCreated("Custom"));
                 } else {
-                    ServerCommunicator.sendConsoleMessage("Custom questions file niet kunnen aanmaken.");
+                    ServerCommunicator.sendConsoleMessage(QuestionManager.fileCreatedFailed("Custom"));
                     return;
                 }
             }
@@ -53,10 +54,10 @@ public class CustomQuestionsManager {
             customQuestionList.addAll(customQuestionListOriginal);
 
 
-            ServerCommunicator.sendConsoleMessage(ChatColor.GREEN+"Custom vragen ingeladen. Totaal van: "+customQuestionListOriginal.size());
+            ServerCommunicator.sendConsoleMessage(QuestionManager.questionsLoaded("Custom",customQuestionListOriginal.size()));
         } catch (IOException e) {
             e.printStackTrace();
-            ServerCommunicator.sendConsoleMessage(ChatColor.RED+"[ERROR] Inladen van custom vragen is fout gegaan.");
+            ServerCommunicator.sendConsoleMessage(ChatColor.RED+QuestionManager.questionsLoadedFailed("Custom"));
         }
     }
 

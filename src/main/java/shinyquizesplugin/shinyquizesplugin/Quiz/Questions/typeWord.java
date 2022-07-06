@@ -1,5 +1,6 @@
 package shinyquizesplugin.shinyquizesplugin.Quiz.Questions;
 
+import shinyquizesplugin.Languages.LanguageManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.ConfigManager;
 
 public class typeWord implements Question{
@@ -23,6 +24,6 @@ public class typeWord implements Question{
 
     @Override
     public String getFailedMessage(String highlightColor) {
-        return "Helaas, niemand was snel genoeg.";
+        return LanguageManager.getLanguage().get("typeQuestionFailed");
     }
 }

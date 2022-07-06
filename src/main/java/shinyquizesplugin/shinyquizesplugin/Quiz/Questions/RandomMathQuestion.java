@@ -1,5 +1,7 @@
 package shinyquizesplugin.shinyquizesplugin.Quiz.Questions;
 
+import org.bukkit.ChatColor;
+import shinyquizesplugin.Languages.LanguageManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.ConfigManager;
 
 public class RandomMathQuestion implements Question {
@@ -68,6 +70,7 @@ public class RandomMathQuestion implements Question {
 
     @Override
     public String getFailedMessage(String highlightColor) {
-        return "Helaas, was net iets te moeilijk. Het antwoord was: "+highlightColor+getAnswer()+"§f.";
+        String str = LanguageManager.getLanguage().get("mathQuestionCancelled");
+        return java.text.MessageFormat.format(str, highlightColor+answer+ ChatColor.WHITE);
     }
 }

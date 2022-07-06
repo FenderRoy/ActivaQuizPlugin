@@ -1,5 +1,7 @@
 package shinyquizesplugin.shinyquizesplugin.Quiz.Questions;
 
+import org.bukkit.ChatColor;
+import shinyquizesplugin.Languages.LanguageManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.ConfigManager;
 
 import java.util.Random;
@@ -42,6 +44,7 @@ public class shuffledWord implements Question{
 
     @Override
     public String getFailedMessage(String highlightColor) {
-        return "Helaas, niemand heeft het ontcijferd. Het woord was: "+highlightColor+getAnswer()+"§f.";
+        String str = LanguageManager.getLanguage().get("shuffledQuestionCancelled");
+        return java.text.MessageFormat.format(str, highlightColor+word+ ChatColor.WHITE);
     }
 }

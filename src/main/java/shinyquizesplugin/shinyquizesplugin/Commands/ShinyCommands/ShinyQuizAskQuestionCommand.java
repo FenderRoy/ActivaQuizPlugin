@@ -2,7 +2,9 @@ package shinyquizesplugin.shinyquizesplugin.Commands.ShinyCommands;
 
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import shinyquizesplugin.Languages.LanguageManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
+import shinyquizesplugin.shinyquizesplugin.Mangers.QuestionAskerManager;
 import shinyquizesplugin.shinyquizesplugin.Quiz.ActiveQuizInformation;
 import shinyquizesplugin.shinyquizesplugin.Quiz.CustomQuestionsManager;
 import shinyquizesplugin.shinyquizesplugin.Quiz.QuestionManager;
@@ -15,10 +17,15 @@ public class ShinyQuizAskQuestionCommand implements ShinyQuizesCommand{
     public boolean executeCommand(CommandSender sender, String label, String[] args) {
         if (ActiveQuizInformation.isActive()) {
             if(sender instanceof Player) {
-                ServerCommunicator.sendChatMessageToPlayer((Player) sender, "Er is al een quiz bezig!");
+                ServerCommunicator.sendChatMessageToPlayer((Player) sender, LanguageManager.getLanguage().get("quizActive"));
             } else {
-                ServerCommunicator.sendConsoleMessage("Er is al een quiz bezig!");
+                ServerCommunicator.sendConsoleMessage(LanguageManager.getLanguage().get("quizActive"));
             }
+            return true;
+        }
+
+        if(args.length <= 1) {
+            QuestionAskerManager.askRandomQuestion();
             return true;
         }
 
@@ -43,8 +50,8 @@ public class ShinyQuizAskQuestionCommand implements ShinyQuizesCommand{
         if(!CustomQuestionsManager.getCustomQuestionList().isEmpty()){
             QuestionManager.createQuestion(CustomQuestionsManager.getRandomQuestion());
         } else {
-            if(sender instanceof Player) ServerCommunicator.sendChatMessageToPlayer((Player) sender, "Er zijn geen custom vragen.");
-            else ServerCommunicator.sendConsoleMessage("Er zijn geen custom vragen.");
+            if(sender instanceof Player) ServerCommunicator.sendChatMessageToPlayer((Player) sender, getMessageString("custom"));
+            else ServerCommunicator.sendConsoleMessage(getMessageString("custom"));
         }
     }
     private void askMathQuestion(String[] args){
@@ -76,8 +83,8 @@ public class ShinyQuizAskQuestionCommand implements ShinyQuizesCommand{
         if(!ShuffledWordQuestionManager.shuffledWordListOriginal.isEmpty()){
             QuestionManager.createQuestion(ShuffledWordQuestionManager.getRandomQuestion());
         } else {
-            if(sender instanceof Player) ServerCommunicator.sendChatMessageToPlayer((Player) sender, "Er zijn geen shuffled vragen.");
-            else ServerCommunicator.sendConsoleMessage("Er zijn geen shuffled vragen.");
+            if(sender instanceof Player) ServerCommunicator.sendChatMessageToPlayer((Player) sender, getMessageString("shuffled"));
+            else ServerCommunicator.sendConsoleMessage(getMessageString("shuffled"));
         }
     }
 
@@ -85,9 +92,14 @@ public class ShinyQuizAskQuestionCommand implements ShinyQuizesCommand{
         if(!TypeWordQuestionManager.typeWordListOriginal.isEmpty()){
             QuestionManager.createQuestion(TypeWordQuestionManager.getRandomQuestion());
         } else {
-            if(sender instanceof Player) ServerCommunicator.sendChatMessageToPlayer((Player) sender, "Er zijn geen type vragen.");
-            else ServerCommunicator.sendConsoleMessage("Er zijn geen type vragen.");
+            if(sender instanceof Player) ServerCommunicator.sendChatMessageToPlayer((Player) sender, getMessageString("type"));
+            else ServerCommunicator.sendConsoleMessage(getMessageString("type"));
         }
+    }
+
+    private String getMessageString(String type){
+        String message = LanguageManager.getLanguage().get("noAvailableQuestions");
+        return java.text.MessageFormat.format(message, type);
     }
 
 }

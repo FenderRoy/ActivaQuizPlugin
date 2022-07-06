@@ -2,6 +2,7 @@ package shinyquizesplugin.shinyquizesplugin.Commands.ShinyCommands;
 
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import shinyquizesplugin.Languages.LanguageManager;
 import shinyquizesplugin.shinyquizesplugin.Leaderboard.LeaderboardManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.ConfigManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
@@ -37,22 +38,28 @@ public class ShinyQuizesReloadCommand implements ShinyQuizesCommand {
                 break;
             case "rewards":
                 reloadRewards();
-                sendMessage("Rewards reloaded. Total of: "+RewardManager.rewardList.size()+" rewards.");
+                String msg = LanguageManager.getLanguage().get("rewardsReloaded");
+                sendMessage(java.text.MessageFormat.format(msg,String.valueOf(RewardManager.rewardList.size())));
                 break;
             case "customquestions":
                 reloadCustomQuestions();
-                sendMessage("Custom questions reloaded. Total of: "+CustomQuestionsManager.getCustomQuestionList().size()+" custom questions.");
+                sendMessage(getFormattedMessage("Custom", CustomQuestionsManager.getCustomQuestionList().size()));
                 break;
             case "shuffledwords":
                 reloadShuffledWordQuestions();
-                sendMessage("Shuffled word questions reloaded. Total of: "+ShuffledWordQuestionManager.shuffledWordListOriginal.size()+" shuffled questions.");
+                sendMessage(getFormattedMessage("Shuffled", ShuffledWordQuestionManager.shuffledWordListOriginal.size()));
                 break;
             case "typewords":
                 reloadTypeWordQuestions();
-                sendMessage("Type words reloaded. Total of: "+TypeWordQuestionManager.typeWordList.size()+" type words.");
+                sendMessage(getFormattedMessage("Type", TypeWordQuestionManager.typeWordListOriginal.size()));
                 break;
         }
         return true;
+    }
+
+    private String getFormattedMessage(String type, int amount){
+        String str = LanguageManager.getLanguage().get("questionReloaded");
+        return java.text.MessageFormat.format(str, type, String.valueOf(amount));
     }
 
     private void sendMessage(String message){
@@ -70,6 +77,9 @@ public class ShinyQuizesReloadCommand implements ShinyQuizesCommand {
         ConfigManager.setConfig(PLUGIN.getConfig());
         ConfigManager.getConfig().options().copyDefaults(true);
         PLUGIN.saveConfig();
+
+        LanguageManager.loadLanguage(ConfigManager.getConfig().getString("Language"));
+
         LeaderboardManager.initialize();
         QuestionAskerManager.start();
 
@@ -104,6 +114,7 @@ public class ShinyQuizesReloadCommand implements ShinyQuizesCommand {
         ConfigManager.setConfig(PLUGIN.getConfig());
         ConfigManager.getConfig().options().copyDefaults(true);
         PLUGIN.saveConfig();
+        LanguageManager.loadLanguage(ConfigManager.getConfig().getString("Language"));
         LeaderboardManager.initialize();
 
         QuestionAskerManager.start();

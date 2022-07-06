@@ -13,7 +13,7 @@ public class ServerCommunicator {
             +ChatColor.GRAY+"]"
             +ChatColor.WHITE+": ";
 
-    private static String chatPrefix;
+    private static String chatPrefix = "[ShinyQuizes]";
 
     public static void initialize(){
 

@@ -5,6 +5,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.Server;
 import org.bukkit.entity.Player;
+import shinyquizesplugin.Languages.LanguageManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.ConfigManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
 
@@ -34,7 +35,7 @@ public class LeaderboardManager {
             List<PlayerHolder> players = getPlayerLeaderboard();
 
             player.sendMessage(ChatColor.GRAY + "---------- " + ServerCommunicator.getChatPrefix() + ChatColor.GRAY + " ----------");
-            player.sendMessage(ChatColor.GRAY + "Meeste quiz wins:");
+            player.sendMessage(ChatColor.GRAY + LanguageManager.getLanguage().get("mostQuizWins"));
             int max = 0;
             System.out.println(players.size());
             for (int i = 0; i < players.size(); i++) {

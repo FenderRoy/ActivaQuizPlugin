@@ -1,6 +1,7 @@
 package shinyquizesplugin.shinyquizesplugin.Quiz.Questions.questionGetters;
 
 import org.bukkit.configuration.file.FileConfiguration;
+import shinyquizesplugin.Languages.LanguageManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.ConfigManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
 import shinyquizesplugin.shinyquizesplugin.Quiz.CustomQuestionsManager;
@@ -24,7 +25,10 @@ public class RandomQuestionManager {
         if(config.getBoolean("enableShuffledWordQuestions") && !ShuffledWordQuestionManager.shuffledWordList.isEmpty()) activeQuestions.add(new ShuffledWordGetter());
         if(config.getBoolean("enableTypeWordQuestions") && !TypeWordQuestionManager.typeWordList.isEmpty()) activeQuestions.add(new TypedWordGetter());
 
-        ServerCommunicator.sendConsoleMessage("Er zijn "+activeQuestions.size()+" actieve random questions.");
+
+        String str = LanguageManager.getLanguage().get("questionReloaded");
+        String formatted = java.text.MessageFormat.format(str, "Config", activeQuestions.size());
+        ServerCommunicator.sendConsoleMessage(formatted);
     }
 
 }

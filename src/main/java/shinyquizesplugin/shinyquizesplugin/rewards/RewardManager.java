@@ -35,9 +35,9 @@ public class RewardManager {
                 File questionFile = new File(path);
                 if (questionFile.createNewFile()) {
                     initializeDefaultRewardsInFile(questionFile);
-                    ServerCommunicator.sendConsoleMessage("Custom rewards file aangemaakt.");
+                    ServerCommunicator.sendConsoleMessage("Custom rewards file created.");
                 } else {
-                    ServerCommunicator.sendConsoleMessage("Custom rewards file niet kunnen aanmaken.");
+                    ServerCommunicator.sendConsoleMessage("Custom rewards file couldn't be created.");
                     return;
                 }
             }
@@ -65,10 +65,10 @@ public class RewardManager {
             rewardList.add(copyOfReward(reward));
             reader.close();
 
-            ServerCommunicator.sendConsoleMessage(ChatColor.GREEN + "Rewards ingeladen. Totaal van: " + rewardList.size() + " rewards.");
+            ServerCommunicator.sendConsoleMessage(ChatColor.GREEN + "Rewards loaded. Total of: " + rewardList.size() + " rewards.");
         } catch (IOException e) {
             e.printStackTrace();
-            ServerCommunicator.sendConsoleMessage(ChatColor.RED + "[ERROR] Inladen van rewards is fout gegaan.");
+            ServerCommunicator.sendConsoleMessage(ChatColor.RED + "[ERROR] loading of rewards failed.");
         }
 
     }

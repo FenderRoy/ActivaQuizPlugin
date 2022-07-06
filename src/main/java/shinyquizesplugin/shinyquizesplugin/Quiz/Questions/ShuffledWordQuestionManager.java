@@ -37,9 +37,9 @@ public class ShuffledWordQuestionManager {
                 File questionFile = new File(path);
                 if (questionFile.createNewFile()) {
                     initializeDefaultQuestionsInFile(questionFile);
-                    ServerCommunicator.sendConsoleMessage("Shuffled words file aangemaakt.");
+                    ServerCommunicator.sendConsoleMessage(QuestionManager.fileCreated("Shuffled"));
                 } else {
-                    ServerCommunicator.sendConsoleMessage("Shuffled words file niet kunnen aanmaken.");
+                    ServerCommunicator.sendConsoleMessage(QuestionManager.fileCreatedFailed("Shuffled"));
                     return;
                 }
             }
@@ -56,10 +56,10 @@ public class ShuffledWordQuestionManager {
 
             shuffledWordListOriginal.addAll(shuffledWordList);
 
-            ServerCommunicator.sendConsoleMessage(ChatColor.GREEN+"Shuffled Words ingeladen. Totaal van: "+shuffledWordList.size());
+            ServerCommunicator.sendConsoleMessage(QuestionManager.questionsLoaded("Shuffled",shuffledWordListOriginal.size()));
         } catch (IOException e) {
             e.printStackTrace();
-            ServerCommunicator.sendConsoleMessage(ChatColor.RED+"[ERROR] Inladen van Shuffled words is fout gegaan.");
+            ServerCommunicator.sendConsoleMessage(ChatColor.RED+QuestionManager.questionsLoadedFailed("Shuffled"));
         }
     }
 

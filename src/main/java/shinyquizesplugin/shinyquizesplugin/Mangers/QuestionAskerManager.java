@@ -1,5 +1,7 @@
 package shinyquizesplugin.shinyquizesplugin.Mangers;
 
+import org.bukkit.ChatColor;
+import shinyquizesplugin.Languages.LanguageManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
 import shinyquizesplugin.shinyquizesplugin.Quiz.ActiveQuizInformation;
 import shinyquizesplugin.shinyquizesplugin.Quiz.QuestionManager;
@@ -50,13 +52,18 @@ public class QuestionAskerManager {
     }
 
     public static void announceQuestion(int delay){
-        String color = ConfigManager.getConfig().getString("HighlightedWordColor");
-        ServerCommunicator.sendChatMessage("Er komt een vraag over "+color+delay+"§f seconden.");
+        ServerCommunicator.sendChatMessage(getQuestionAnnouncementString(delay));
     }
 
     private static boolean sendNextQuestion(int chance){
         int randomNumber = (int)(Math.random()*100) +1;
 
         return randomNumber <= chance;
+    }
+
+    private static String getQuestionAnnouncementString(int time){
+        String color = ConfigManager.getConfig().getString("HighlightedWordColor");
+        String str = LanguageManager.getLanguage().get("questionAnnouncement");
+        return java.text.MessageFormat.format(str, color+time+ ChatColor.WHITE);
     }
 }

@@ -1,5 +1,8 @@
 package shinyquizesplugin.shinyquizesplugin.Quiz.Questions;
 
+import org.bukkit.ChatColor;
+import shinyquizesplugin.Languages.LanguageManager;
+
 public class CustomQuestion implements Question{
 
     private final String question;
@@ -22,6 +25,7 @@ public class CustomQuestion implements Question{
 
     @Override
     public String getFailedMessage(String highlightColor) {
-        return "Helaas, niemand heeft het geraden. Het juiste antwoord was: "+highlightColor+getAnswer()+"§f.";
+        String str = LanguageManager.getLanguage().get("customQuestionCancelled");
+        return java.text.MessageFormat.format(str, highlightColor+answer+ ChatColor.WHITE);
     }
 }

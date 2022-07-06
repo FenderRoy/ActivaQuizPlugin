@@ -37,9 +37,9 @@ public class TypeWordQuestionManager {
                 File questionFile = new File(path);
                 if (questionFile.createNewFile()) {
                     initializeDefaultQuestionsInFile(questionFile);
-                    ServerCommunicator.sendConsoleMessage("Typed words file aangemaakt.");
+                    ServerCommunicator.sendConsoleMessage(QuestionManager.fileCreated("Type"));
                 } else {
-                    ServerCommunicator.sendConsoleMessage("Typed words file niet kunnen aanmaken.");
+                    ServerCommunicator.sendConsoleMessage(QuestionManager.fileCreatedFailed("Type"));
                     return;
                 }
             }
@@ -56,10 +56,10 @@ public class TypeWordQuestionManager {
 
             typeWordListOriginal.addAll(typeWordList);
 
-            ServerCommunicator.sendConsoleMessage(ChatColor.GREEN+"Typed Words ingeladen. Totaal van: "+ typeWordList.size());
+            ServerCommunicator.sendConsoleMessage(QuestionManager.questionsLoaded("Type",typeWordListOriginal.size()));
         } catch (IOException e) {
             e.printStackTrace();
-            ServerCommunicator.sendConsoleMessage(ChatColor.RED+"[ERROR] Inladen van Typed words is fout gegaan.");
+            ServerCommunicator.sendConsoleMessage(ChatColor.RED+QuestionManager.questionsLoadedFailed("Type"));
         }
     }
 

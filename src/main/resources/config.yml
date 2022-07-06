@@ -17,9 +17,9 @@ ChatPrefix: §5Shiny §dQuizes
 
 # Language to use
 # default: Dutch
-Language: dutch.properties
+Language: english.properties
 
-# Keep track of an leaderboard.
+# Keep track of a leaderboard.
 # default: true
 EnableLeaderboard: true
 
@@ -73,8 +73,8 @@ RandomQuestionAnnouncementTimer: 15
 # Percent chance to actually ask a question, or to skip.
 # If the percent chance is on 50, each time the delay is done it will have a 50% chance of actuallly asking a question.
 # This can create more 'randomness' between questions.
-# default: 33
-PercentChanceForQuestion: 33
+# default: 60 (60%)
+PercentChanceForQuestion: 60
 
 
 
@@ -85,7 +85,7 @@ PercentChanceForQuestion: 33
 #-------------------------------------------------------------------#
 
 # Math questions.
-# The max values are the highest numbers that can be possible inside of a question.
+# The max values are the highest numbers that can be possible inside a question.
 # For example:
 #
 # If the PlusMaxValue is on 600, an example question can be:
@@ -115,12 +115,12 @@ MultiplyQuestionMaxValue: 25
 #------------ Not fully implemented yet. ignore for now ------------#
 #-------------------------------------------------------------------#
 
-# The reason to use an database is for speed and efficiency.
+# The reason to use a database is for speed and efficiency.
 # Using a database on big servers increases performance.
 # On small servers you can get away with using YML files.
 enableMySQL: false
 
-# MySQL atabase settings
+# MySQL database settings
 # Only important if enableMySQL is on true.
 DatabaseIPAdress: 1.1.1.1:3306
 DatabaseName: ShinyQuizesLeaderboard

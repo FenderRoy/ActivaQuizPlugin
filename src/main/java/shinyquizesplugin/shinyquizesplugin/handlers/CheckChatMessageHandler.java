@@ -4,6 +4,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+import shinyquizesplugin.Languages.LanguageManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
 import shinyquizesplugin.shinyquizesplugin.Leaderboard.PlayerWinManager;
 import shinyquizesplugin.shinyquizesplugin.Quiz.ActiveQuizInformation;
@@ -20,7 +21,10 @@ public class CheckChatMessageHandler implements Listener {
         String msg = event.getMessage().toLowerCase(Locale.ROOT);
 
         if(msg.equals(ActiveQuizInformation.getQuestion().getAnswer().toLowerCase())){
-            ServerCommunicator.sendChatMessage(event.getPlayer().getName()+ " heeft het correct!");
+            String string = LanguageManager.getLanguage().get("correctAnswer");
+            String stringformatted = java.text.MessageFormat.format(string, event.getPlayer().getName());
+
+            ServerCommunicator.sendChatMessage(stringformatted);
             event.setCancelled(true);
             PlayerWinManager.addWin(event.getPlayer(), 1);
             RewardGiver.giveReward(event.getPlayer());
