@@ -38,7 +38,7 @@ public class createDefaultDutchLangues implements IDefaultLanguageCreator{
         p.setProperty("mathQuestionCancelled","Helaas, was net iets te moeilijk, het juiste antwoord was: {0}.");
         p.setProperty("shuffledQuestionCancelled","Helaas, niemand heeft het ontcijferd. Het woord was: {0}.");
         p.setProperty("typeQuestionFailed","Helaas, niemand was snel genoeg.");
-        p.setProperty("AcronymQuestionFailed","Helaas, niemand wist de betekenis, het is: {0}");
+        p.setProperty("AcronymQuestionFailed","Helaas, niemand wist de betekenis, het staat voor: {0}");
 
         p.setProperty("mathQuestionAsker","Wat is {0}?");
         p.setProperty("shuffledQuestionAsker","Ontcijfer het woord {0}.");

@@ -3,5 +3,18 @@
 # example: What comes after G in the alphabet? -/- H
 What comes after G in the alphabet? -/- H
 What comes after Q in the alphabet? -/- R
-Who made this plugin? -/- Fender
+How many letters does the alphabet have? -/- 26
 What is the default screenshot button. -/- F2
+How many days are there in a default year? -/- 365
+How many days does February have in a leap year? -/- 29
+How many colors are there in a rainbow? -/- 7
+What is the symbol for Potassium? -/- K
+How many seconds are there in a day? -/- 86400
+How many seconds are there in an hour? -/- 3600
+What is the symbol for copper? -/- Cu
+Which painter reputedly cut off his own ear? -/- Vincent van Gogh
+What animal is nkown to be 'man's best friend'? -/- Dog
+How many balls are on a pool table at the start of the game? -/- 16
+Which turtle can't retract into their shell? -/- Sea Turtle
+Who own's the Black Pearl? -/- Captain Jack Sparrow
+True or False, an eggplant is a vegetable. -/- False

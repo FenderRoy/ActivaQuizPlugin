@@ -1,9 +1,39 @@
-RewardOne:
--diamond_sword 1
--diamond_block 10
--diamond 30
-RewardTwo:
--iron_ingot 64
--light_blue_stained_glass 2
-RewardThree:
--quartz_block 300
+#Names of rewards dont matter. I've called them Reward (number).
+#Blank lines are ignored.
+#
+# To create a new reward:
+#
+# Name of the reward
+# -[itemid] [amount]
+# -[itemid] [amount]
+# etc.
+
+Reward 1:
+-diamond 1
+
+Reward 2:
+-iron_ingot 8
+
+Reward 3:
+-quartz_block 16
+
+Reward 4:
+-coal 16
+
+Reward 5:
+-Emerald 1
+
+Reward 6:
+-gold_ingot 6
+
+Reward 7:
+-frog_spawn_egg 1
+
+Reward 8:
+-cobblestone 16
+
+Reward 9:
+-arrow 16
+
+Reward 10:
+-spectral_arrow 4

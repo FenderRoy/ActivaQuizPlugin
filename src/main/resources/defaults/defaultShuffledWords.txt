@@ -1,3 +1,6 @@
+#Blank lines and lines that start with # are ignored.
+#To add a new word, start a new line and enter the word.
+#Space sensitive, dont add spaces at the end of a word.
 Dandelion
 Poppy
 Blue orchid
@@ -12,3 +15,180 @@ Sunflower
 Lilac
 Rose bush
 Peony
+Creeper
+Zombie
+Zombiepigman
+Enderman
+Allay
+Axolotl
+Bat
+Bee
+Blaze
+Cat
+Cave Spider
+Chicken
+Cod
+Cow
+Dolphin
+Donkey
+Drowned
+Elder Guardian
+Guardian
+Endermite
+Evoker
+Fox
+Frog
+Ghast
+Glow Squid
+Goat
+Hoglin
+Horse
+Husk
+Llama
+Magma Cube
+Mooshroom
+Mule
+Ocelot
+Panda
+Parrot
+Phantom
+Pig
+Piglin
+Piglin
+Pillager
+Polar Bear
+Pufferfish
+Rabbit
+Ravager
+Salmon
+Sheep
+Shulker
+Silverfish
+Skeleton
+Slime
+Spider
+Squid
+Stray
+Strider
+Tadpole
+Tropical Fish
+Turtle
+Vex
+Villager
+Vindicator
+Warden
+Witch
+Wither Skeleton
+Wolf
+Zoglin
+Music Disc
+Heart of the Sea
+Nautilus Shell
+Goat Horn
+Honeycomb
+Honey
+Prismarine
+Nether Brick
+Firework
+Nether Star
+Beacon
+Fire Charge
+Bottle o' Enchanting
+Diamond
+Emerald
+Lapis Lazuli
+Nether Quartz
+Amethyst
+Iron Ingot
+Gold Ingot
+Copper Ingot
+Netherite Ingot
+Bowl
+Gunpowder
+Feather
+Wheat
+Snowball
+Brick
+Clay Ball
+Slimeball
+Bone
+Bone Meal
+Blaze Rod
+Eye of Ender
+Ender Pearl
+Redstone Dust
+Observer
+Piston
+Sticky Piston
+Slime Block
+Honey Block
+Pressure Plate
+Chest
+Crafting Table
+Furnace
+Ladder
+Cactus
+Jukebox
+Note Block
+Anvil
+Carpet
+Scaffolding
+Painting
+Item Frame
+Armor Stand
+End Crystal
+Shroomlight
+Apple
+Bread
+Golden Apple
+Steak
+Cooked Chicken
+Cooked Rabbit
+Carrot
+Beetroot
+Raw Beef
+Cooked Porkchop
+Sweet Berries
+Glow Berries
+Lectern
+Dispenser
+Dropper
+Elytra
+Crossbow
+Shield
+Trident
+Totem of Undying
+Compass
+Clock
+Spyglass
+Shears
+Stone
+Cobblestone
+Sand
+Gravel
+Bedrock
+Sandstone
+Sponge
+Bookshelf
+Pumpkin
+Netherrack
+Basalt
+Stone Bricks
+Melon
+End Stone
+Mycelium
+Sea Lantern
+Concrete
+Coral
+Blackstone
+Deepslate
+Obsidian
+Calcite
+Dripstone
+Dirt
+Podzol
+Mud
+Coal
+Granite
+Diorite
+Andesite

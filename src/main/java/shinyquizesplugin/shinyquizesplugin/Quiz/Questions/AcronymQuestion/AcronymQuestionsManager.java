@@ -47,6 +47,7 @@ public class AcronymQuestionsManager {
             String line;
 
             while ((line = bufferedReader.readLine()) != null) {
+                if(line.trim().isEmpty() || line.startsWith("#")) continue;
                 createQuestion(dissectLine(line));
             }
             reader.close();
@@ -93,31 +94,7 @@ public class AcronymQuestionsManager {
     public static void initializeDefaultQuestionsInFile(File file){
         try {
             FileOutputStream out = new FileOutputStream(file);
-            String txt = "WB -/- Welcome Back\n" +
-                    "WYD -/- What you doing\n" +
-                    "LMAO -/- Laughin my ass off\n" +
-                    "LOL -/- Laugh out Loud\n" +
-                    "OMG -/- oh my god\n" +
-                    "GG -/- Good Game\n" +
-                    "EZ -/- easy\n" +
-                    "GGEZ -/- Good Game easy\n" +
-                    "LMK -/- let me know\n" +
-                    "TBH -/- to be honest\n" +
-                    "IDK -/- I dont know\n" +
-                    "IDC -/- I dont care\n" +
-                    "TLDR -/- too long didn't read\n" +
-                    "NVM -/- nevermind\n" +
-                    "TBF -/- to be fair\n" +
-                    "BRB -/- be right back\n" +
-                    "GTG -/- got to go\n" +
-                    "TTYL -/- talk to you later\n" +
-                    "IMO -/- in my opinion\n" +
-                    "IMHO -/- in my honest opinion\n" +
-                    "AKA -/- also known as\n" +
-                    "FAQ -/- frequenly asked questions\n" +
-                    "DIY -/- do it yourself\n" +
-                    "ASAP -/- as soon as possible\n" +
-                    "ILY -/- i love you\n";
+            String txt = getDefaultAcronyms();
 
             for(Byte bit : txt.getBytes(Charset.defaultCharset())){
                 out.write(bit);
@@ -128,5 +105,38 @@ public class AcronymQuestionsManager {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private static String getDefaultAcronyms(){
+        return "#Blank lines and lines that start with # are ignored.\n" +
+                "# To add a new acronym, type out the acronym\n" +
+                "# followed by \" -/- \" *[SPACE SENSITIVE]*\n" +
+                "# followed by the answer.\n" +
+                "WB -/- Welcome Back\n" +
+                "WYD -/- What you doing\n" +
+                "LMAO -/- Laughin my ass off\n" +
+                "LOL -/- Laugh out Loud\n" +
+                "OMG -/- oh my god\n" +
+                "GG -/- Good Game\n" +
+                "EZ -/- easy\n" +
+                "GGEZ -/- Good Game easy\n" +
+                "LMK -/- let me know\n" +
+                "TBH -/- to be honest\n" +
+                "IDK -/- I dont know\n" +
+                "IDC -/- I dont care\n" +
+                "TLDR -/- too long didn't read\n" +
+                "NVM -/- nevermind\n" +
+                "TBF -/- to be fair\n" +
+                "BRB -/- be right back\n" +
+                "GTG -/- got to go\n" +
+                "TTYL -/- talk to you later\n" +
+                "IMO -/- in my opinion\n" +
+                "IMHO -/- in my honest opinion\n" +
+                "AKA -/- also known as\n" +
+                "FAQ -/- frequenly asked questions\n" +
+                "DIY -/- do it yourself\n" +
+                "ASAP -/- as soon as possible\n" +
+                "ILY -/- i love you\n" +
+                "MC -/- Minecraft";
     }
 }

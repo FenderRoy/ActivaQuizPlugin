@@ -46,6 +46,7 @@ public class CustomQuestionsManager {
             String line;
 
             while ((line = bufferedReader.readLine()) != null) {
+                if(line.trim().isEmpty() || line.startsWith("#")) continue;
                 createQuestion(dissectLine(line));
             }
             reader.close();
@@ -94,13 +95,7 @@ public class CustomQuestionsManager {
     public static void initializeDefaultQuestionsInFile(File file){
         try {
             FileOutputStream out = new FileOutputStream(file);
-            String txt = "# Use '#' for comments.\n" +
-                    "# Type out the question, write \" -/- \" after (SPACE SENSITIVE) and then the answer.\n" +
-                    "# example: Under what names is the developer known? -/- Fender and Pogasuna\n" +
-                    "What comes after G in the alphabet? -/- H\n" +
-                    "What comes after Q in the alphabet? -/- R\n" +
-                    "Who made this plugin? -/- Fender\n" +
-                    "What is the default screenshot button. -/- F2";
+            String txt = getCustomQuestions();
 
             for(Byte bit : txt.getBytes(Charset.defaultCharset())){
                 out.write(bit);
@@ -111,5 +106,28 @@ public class CustomQuestionsManager {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private static String getCustomQuestions(){
+        return "# Use '#' for comments.\n" +
+                "# Type out the question, write \" -/- \" after (SPACE SENSITIVE) and then the answer.\n" +
+                "# example: What comes after G in the alphabet? -/- H\n" +
+                "What comes after G in the alphabet? -/- H\n" +
+                "What comes after Q in the alphabet? -/- R\n" +
+                "How many letters does the alphabet have? -/- 26\n" +
+                "What is the default screenshot button. -/- F2\n" +
+                "How many days are there in a default year? -/- 365\n" +
+                "How many days does February have in a leap year? -/- 29\n" +
+                "How many colors are there in a rainbow? -/- 7\n" +
+                "What is the symbol for Potassium? -/- K\n" +
+                "How many seconds are there in a day? -/- 86400\n" +
+                "How many seconds are there in an hour? -/- 3600\n" +
+                "What is the symbol for copper? -/- Cu\n" +
+                "Which painter reputedly cut off his own ear? -/- Vincent van Gogh\n" +
+                "What animal is nkown to be 'man's best friend'? -/- Dog\n" +
+                "How many balls are on a pool table at the start of the game? -/- 16\n" +
+                "Which turtle can't retract into their shell? -/- Sea Turtle\n" +
+                "Who own's the Black Pearl? -/- Captain Jack Sparrow\n" +
+                "True or False, an eggplant is a vegetable. -/- False";
     }
 }

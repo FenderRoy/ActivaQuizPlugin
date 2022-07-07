@@ -1,3 +1,6 @@
+#Blank lines and lines that start with # are ignored.
+#To add a new word, start a new line and enter the word.
+#Space sensitive, dont add spaces at the end of a word.
 qwerty
 pogchamp
 iamafasttyper
@@ -6,3 +9,116 @@ abcdefghijklmnopqrstuvwxyz
 ababababababababa
 1029384756
 asdfghjkl;
+The Alphabet
+Cobblestone
+Granite
+Diorite
+Andesite
+Cobbled Deepslate
+Polished Deepslate
+Bedrock
+Block of Amethyst
+Waxed Cut Copper
+Waxed Exposed Cut Copper
+Waxed Oxidized Cut Copper
+Muddy Mangrove Roots
+Waxed Oxidized Cut Copper Stairs
+Block of Diamond
+Stripped Warped Stem
+Warped Hyphae
+Prismarine
+Mossy Cobblestone
+Obsidian
+Bookshelf
+Purpur
+Jack o'Lantern
+Bottle o' Enchanting
+Chiseled Nether Bricks
+Aesthetics
+Ambient
+Flammable
+Prestigious
+Encyclopedia
+Blockopedia
+Specification
+Provacative
+Archaic
+Inaccessible
+Inventory
+Pizzas
+Suburban
+Dark Oak Boat with Chest
+Redstone Comparator
+Chorus Flower
+Weeping Vines
+Acacia Fence
+Infested Deepslate
+Sculk Shrieker
+Sculk Catalyst
+Enchanting Table
+Painting
+Scaffolding
+Ender Dragon
+Armor Stand
+IAmACoolPerson
+End Crystal
+Lodestone
+Respawn Anchor
+Shroomlight
+Bee Nest
+Smithing Table
+Composter
+Grindstone
+Blaze Powder
+Azure Bluet
+Azalea
+Flowering Azalea
+Netherite Chestplate
+Blast Protection IV
+Riptide III
+Flame
+Quick Charge III
+Aqua Affinity
+Respiration III
+Projectile Protection IV
+Impaling V
+Unbreaking III
+Sweeping Edge III
+Channeling
+Bane of Arthropods V
+Potion of the Turtle Master
+Lingering Potion
+Redstone Lamp
+Enchanted Golden Apple
+Pufferfish
+Rotten Flesh
+Pumpkin Pie
+Wither Rose
+Amethyst Shard
+Bucket of Axolotl
+White Dye
+Orange Dye
+Magenta Dye
+Light Blue Dye
+Yellow Dye
+Lime Dye
+Pink Dye
+Gray Dye
+Light Gray Dye
+Cyan Dye
+Purple DYe
+Blue Dye
+Brown Dye
+Green Dye
+Red Dye
+Black Dye
+Egg
+Eye of Ender
+Heart of the Sea
+Diamond Horse Armor
+Gold Horse Armor
+Leather Horse Armor
+Iron Horse Armor
+Prismarine Crystals
+Prismarine Shard
+Firework Star

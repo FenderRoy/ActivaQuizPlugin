@@ -20,17 +20,34 @@ public class RandomQuestionManager {
 
         activeQuestions.clear();
         FileConfiguration config = ConfigManager.getConfig();
+        int activeQuetsionsAmount = 0;
 
-        if(config.getBoolean("enableMathQuestions")) activeQuestions.add(new MathQuestionGetter());
-        if(config.getBoolean("enableCustomQuestions") && !CustomQuestionsManager.getCustomQuestionList().isEmpty()) activeQuestions.add(new CustomQuestionGetter());
-        if(config.getBoolean("enableShuffledWordQuestions") && !ShuffledWordQuestionManager.shuffledWordList.isEmpty()) activeQuestions.add(new ShuffledWordGetter());
-        if(config.getBoolean("enableTypeWordQuestions") && !TypeWordQuestionManager.typeWordList.isEmpty()) activeQuestions.add(new TypedWordGetter());
-        if(config.getBoolean("enableAcronymWordQuestions") && !AcronymQuestionsManager.getCustomQuestionList().isEmpty()) activeQuestions.add(new AcronymQuestionGetter());
+        if(config.getBoolean("enableMathQuestions")) {
+            activeQuestions.add(new MathQuestionGetter());
+        }
+        if(config.getBoolean("enableCustomQuestions") && !CustomQuestionsManager.getCustomQuestionList().isEmpty()) {
+            activeQuestions.add(new CustomQuestionGetter());
+            activeQuetsionsAmount+=CustomQuestionsManager.getCustomQuestionList().size();
+        }
+        if(config.getBoolean("enableShuffledWordQuestions") && !ShuffledWordQuestionManager.shuffledWordList.isEmpty()) {
+            activeQuestions.add(new ShuffledWordGetter());
+            activeQuetsionsAmount+=ShuffledWordQuestionManager.shuffledWordList.size();
+        }
+        if(config.getBoolean("enableTypeWordQuestions") && !TypeWordQuestionManager.typeWordList.isEmpty()) {
+            activeQuestions.add(new TypedWordGetter());
+            activeQuetsionsAmount+=TypeWordQuestionManager.typeWordList.size();
+        }
+        if(config.getBoolean("enableAcronymWordQuestions") && !AcronymQuestionsManager.getCustomQuestionList().isEmpty()) {
+            activeQuestions.add(new AcronymQuestionGetter());
+            activeQuetsionsAmount+=AcronymQuestionsManager.getCustomQuestionList().size();
+        }
 
 
         String str = LanguageManager.getLanguage().get("questionReloaded");
-        String formatted = java.text.MessageFormat.format(str, "Config", activeQuestions.size());
+        String formatted = java.text.MessageFormat.format(str, "ActiveTypes", activeQuestions.size());
+        String formatted2 = java.text.MessageFormat.format(str, "Active", activeQuetsionsAmount);
         ServerCommunicator.sendConsoleMessage(formatted);
+        ServerCommunicator.sendConsoleMessage(formatted2);
     }
 
 }

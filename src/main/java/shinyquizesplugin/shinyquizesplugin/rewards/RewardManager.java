@@ -47,11 +47,10 @@ public class RewardManager {
 
             String line;
 
-
-            List<Material> mats = new ArrayList<>();
             Reward reward = null;
             while ((line = bufferedReader.readLine()) != null) {
                 if (!line.startsWith("-")) {
+                    if(line.trim().isEmpty() || line.startsWith("#")) continue;
                     if (reward != null) rewardList.add(copyOfReward(reward));
                     reward = new Reward();
                 } else {
@@ -95,15 +94,7 @@ public class RewardManager {
     public static void initializeDefaultRewardsInFile(File file){
         try {
             FileOutputStream out = new FileOutputStream(file);
-            String txt = "RewardOne:\n" +
-                    "-diamond_sword 1\n" +
-                    "-diamond_block 10\n" +
-                    "-diamond 30\n" +
-                    "RewardTwo:\n" +
-                    "-iron_ingot 64\n" +
-                    "-light_blue_stained_glass 2\n" +
-                    "RewardThree:\n" +
-                    "-quartz_block 300";
+            String txt = getDefaultRewards();
 
             for(Byte bit : txt.getBytes(Charset.defaultCharset())){
                 out.write(bit);
@@ -114,5 +105,49 @@ public class RewardManager {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private static String getDefaultRewards(){
+        return "#Names of rewards dont matter. I've called them Reward (number).\n" +
+                "#Blank lines are ignored.\n" +
+                "#\n" +
+                "# To create a new reward:\n" +
+                "#\n" +
+                "# Name of the reward\n" +
+                "# -[itemid] [amount]\n" +
+                "# -[itemid] [amount]\n" +
+                "# etc.\n" +
+                "\n" +
+                "Reward 1:\n" +
+                "-diamond 1\n" +
+                "\n" +
+                "Reward 2:\n" +
+                "-iron_ingot 8\n" +
+                "\n" +
+                "Reward 3:\n" +
+                "-quartz_block 16\n" +
+                "\n" +
+                "Reward 4:\n" +
+                "-coal 16\n" +
+                "\n" +
+                "Reward 5:\n" +
+                "-Emerald 1\n" +
+                "\n" +
+                "Reward 6:\n" +
+                "-gold_ingot 6\n" +
+                "\n" +
+                "Reward 7:\n" +
+                "-frog_spawn_egg 1\n" +
+                "\n" +
+                "Reward 8:\n" +
+                "-cobblestone 16\n" +
+                "\n" +
+                "Reward 9:\n" +
+                "-arrow 16\n" +
+                "\n" +
+                "Reward 10:\n" +
+                "-spectral_arrow 4\n" +
+                "\n" +
+                "\n";
     }
 }

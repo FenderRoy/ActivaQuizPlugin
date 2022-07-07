@@ -1,3 +1,7 @@
+#Blank lines and lines that start with # are ignored.
+# To add a new acronym, type out the acronym
+# followed by " -/- " *[SPACE SENSITIVE]*
+# followed by the answer.
 WB -/- Welcome Back
 WYD -/- What you doing
 LMAO -/- Laughin my ass off
@@ -23,3 +27,4 @@ FAQ -/- frequenly asked questions
 DIY -/- do it yourself
 ASAP -/- as soon as possible
 ILY -/- i love you
+MC -/- Minecraft
