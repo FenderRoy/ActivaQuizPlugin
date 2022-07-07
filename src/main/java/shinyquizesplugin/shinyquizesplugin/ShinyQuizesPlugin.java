@@ -1,9 +1,11 @@
 package shinyquizesplugin.shinyquizesplugin;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Server;
 import org.bukkit.plugin.java.JavaPlugin;
 import shinyquizesplugin.Languages.FileManager;
 import shinyquizesplugin.Languages.LanguageManager;
+import shinyquizesplugin.UpdateChecker;
 import shinyquizesplugin.shinyquizesplugin.Leaderboard.PlayerWinManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.CommandsManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.ConfigManager;
@@ -21,8 +23,11 @@ public final class ShinyQuizesPlugin extends JavaPlugin {
 
     public static ShinyQuizesPlugin PLUGIN = null;
 
+    public static boolean isUpToDate = true;
+
     @Override
     public void onEnable() {
+
         PLUGIN = this;
         ConfigManager.initializeConfig();
         FileManager.createFiles();
@@ -41,11 +46,15 @@ public final class ShinyQuizesPlugin extends JavaPlugin {
         RewardManager.initializeRewards();
         RandomQuestionManager.initialize();
 
+
+
         PlayerWinManager.loadWinValues();
 
         QuestionAskerManager.start();
 
-        ServerCommunicator.sendConsoleMessage(ChatColor.GREEN + "Plugin loaded.");
+        checkForUpdates();
+
+        ServerCommunicator.sendConsoleMessage(ChatColor.GREEN + "Plugin loaded. Running on version "+this.getDescription().getVersion()+".");
 
 
     }
@@ -55,5 +64,17 @@ public final class ShinyQuizesPlugin extends JavaPlugin {
         PlayerWinManager.saveWinValues();
         // Plugin shutdown logic
         ServerCommunicator.sendConsoleMessage(ChatColor.RED + "Shutting down.");
+    }
+
+    private void checkForUpdates(){
+        new UpdateChecker(this, 103142).getVersion(version -> {
+            if (this.getDescription().getVersion().equals(version)) {
+                ServerCommunicator.sendConsoleMessage("Shiny Quizes is up to date.");
+            } else {
+                ServerCommunicator.sendConsoleMessage(ChatColor.RED + "There is a new version of Shiny Quizes available. Please consider updating.");
+                ServerCommunicator.sendConsoleMessage(ChatColor.RED +"You are on version: "+this.getDescription().getVersion()+", please update to version: "+version);
+                isUpToDate = false;
+            }
+        });
     }
 }

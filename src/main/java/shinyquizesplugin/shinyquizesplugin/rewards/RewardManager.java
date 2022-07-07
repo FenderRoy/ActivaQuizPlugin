@@ -65,7 +65,7 @@ public class RewardManager {
             rewardList.add(copyOfReward(reward));
             reader.close();
 
-            ServerCommunicator.sendConsoleMessage(ChatColor.GREEN + "Rewards loaded. Total of: " + rewardList.size() + " rewards.");
+            ServerCommunicator.sendConsoleMessage("Rewards loaded. Total of: " + rewardList.size() + " rewards.");
         } catch (IOException e) {
             e.printStackTrace();
             ServerCommunicator.sendConsoleMessage(ChatColor.RED + "[ERROR] loading of rewards failed.");

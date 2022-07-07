@@ -55,7 +55,7 @@ public class ConfigManager {
 
         LeaderboardManager.initialize();
 
-        ServerCommunicator.sendConsoleMessage(ChatColor.GREEN+"Config loaded succesfully.");
+        ServerCommunicator.sendConsoleMessage("Config loaded succesfully.");
     }
 
 
