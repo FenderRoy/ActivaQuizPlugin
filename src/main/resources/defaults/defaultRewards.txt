@@ -10,9 +10,11 @@
 
 Reward 1:
 -diamond 1
+-money 100
 
 Reward 2:
 -iron_ingot 8
+-money 10.50
 
 Reward 3:
 -quartz_block 16
@@ -28,9 +30,11 @@ Reward 6:
 
 Reward 7:
 -frog_spawn_egg 1
+-money 20
 
 Reward 8:
 -cobblestone 16
+-money 30
 
 Reward 9:
 -arrow 16

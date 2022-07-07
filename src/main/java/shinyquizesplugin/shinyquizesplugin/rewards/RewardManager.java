@@ -4,6 +4,9 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
+import shinyquizesplugin.shinyquizesplugin.rewards.rewardType.ItemStackReward;
+import shinyquizesplugin.shinyquizesplugin.rewards.rewardType.MoneyReward;
+import shinyquizesplugin.shinyquizesplugin.rewards.rewardType.RewardType;
 
 import java.io.*;
 import java.nio.charset.Charset;
@@ -55,6 +58,12 @@ public class RewardManager {
                     reward = new Reward();
                 } else {
                     String formattedLine = line.replaceAll("-", "");
+                    if(formattedLine.toLowerCase().startsWith("money")){
+                        String[] str = dissectLine(formattedLine);
+                        reward.rewards.add(new MoneyReward(Double.parseDouble(str[1])));
+                        continue;
+                    }
+
                     String[] str = dissectLine(formattedLine);
                     Material mat = Material.getMaterial(str[0].toUpperCase(Locale.ROOT));
                     ItemStack stack = new ItemStack(mat, Integer.parseInt(str[1]));
@@ -75,8 +84,9 @@ public class RewardManager {
     public static Reward copyOfReward(Reward reward){
         Reward newReward = new Reward();
 
-        for(ItemStack material : reward.getRewards()){
-            newReward.addItemStack(new ItemStack(material));
+        for(RewardType material : reward.getRewards()){
+            if(material instanceof ItemStackReward) newReward.addItemStack(new ItemStack((ItemStack) material.get()));
+            if(material instanceof MoneyReward) newReward.rewards.add(material);
         }
 
         return newReward;
@@ -120,9 +130,11 @@ public class RewardManager {
                 "\n" +
                 "Reward 1:\n" +
                 "-diamond 1\n" +
+                "-money 100\n" +
                 "\n" +
                 "Reward 2:\n" +
                 "-iron_ingot 8\n" +
+                "-money 10.50\n" +
                 "\n" +
                 "Reward 3:\n" +
                 "-quartz_block 16\n" +
@@ -138,16 +150,16 @@ public class RewardManager {
                 "\n" +
                 "Reward 7:\n" +
                 "-frog_spawn_egg 1\n" +
+                "-money 20\n" +
                 "\n" +
                 "Reward 8:\n" +
                 "-cobblestone 16\n" +
+                "-money 30\n" +
                 "\n" +
                 "Reward 9:\n" +
                 "-arrow 16\n" +
                 "\n" +
                 "Reward 10:\n" +
-                "-spectral_arrow 4\n" +
-                "\n" +
-                "\n";
+                "-spectral_arrow 4";
     }
 }

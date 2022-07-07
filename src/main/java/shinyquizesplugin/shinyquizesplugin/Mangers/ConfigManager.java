@@ -1,6 +1,5 @@
 package shinyquizesplugin.shinyquizesplugin.Mangers;
 
-import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import shinyquizesplugin.shinyquizesplugin.Leaderboard.LeaderboardManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;

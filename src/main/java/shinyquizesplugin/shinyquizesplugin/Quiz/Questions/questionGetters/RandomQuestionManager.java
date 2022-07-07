@@ -4,7 +4,6 @@ import org.bukkit.configuration.file.FileConfiguration;
 import shinyquizesplugin.Languages.LanguageManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.ConfigManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
-import shinyquizesplugin.shinyquizesplugin.Quiz.QuestionManager;
 import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.AcronymQuestion.AcronymQuestionsManager;
 import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.CustomQuestions.CustomQuestionsManager;
 import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.Question;

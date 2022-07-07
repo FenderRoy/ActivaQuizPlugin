@@ -4,6 +4,8 @@ main: shinyquizesplugin.shinyquizesplugin.ShinyQuizesPlugin
 api-version: 1.19
 authors: [ Fender ]
 description: ShinyQuizes is a plugin to generate random quizes in chat.
+softdepend:
+  - Vault
 
 commands:
   ShinyQuizes:

@@ -1,7 +1,8 @@
 package shinyquizesplugin.shinyquizesplugin;
 
+import net.milkbowl.vault.economy.Economy;
 import org.bukkit.ChatColor;
-import org.bukkit.Server;
+import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import shinyquizesplugin.Languages.FileManager;
 import shinyquizesplugin.Languages.LanguageManager;
@@ -22,7 +23,8 @@ import shinyquizesplugin.shinyquizesplugin.rewards.RewardManager;
 public final class ShinyQuizesPlugin extends JavaPlugin {
 
     public static ShinyQuizesPlugin PLUGIN = null;
-
+    public static Economy econ = null;
+    public static Boolean vaultEnabled = false;
     public static boolean isUpToDate = true;
 
     @Override
@@ -35,6 +37,13 @@ public final class ShinyQuizesPlugin extends JavaPlugin {
 
         LanguageManager.loadLanguage(ConfigManager.getConfig().getString("Language"));
         ServerCommunicator.initialize();
+
+        if (setupEconomy() ) {
+            vaultEnabled = true;
+            ServerCommunicator.sendConsoleMessage("Vault detected, money enabled.");
+        } else {
+            ServerCommunicator.sendConsoleMessage("No vault detected, money disabled.");
+        }
 
         HandlersManager.initializeHandlers();
         CommandsManager.initializePlugins();
@@ -76,5 +85,17 @@ public final class ShinyQuizesPlugin extends JavaPlugin {
                 isUpToDate = false;
             }
         });
+    }
+
+    private boolean setupEconomy() {
+        if (getServer().getPluginManager().getPlugin("Vault") == null) {
+            return false;
+        }
+        RegisteredServiceProvider<Economy> rsp = getServer().getServicesManager().getRegistration(Economy.class);
+        if (rsp == null) {
+            return false;
+        }
+        econ = rsp.getProvider();
+        return econ != null;
     }
 }

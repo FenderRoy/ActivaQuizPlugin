@@ -4,7 +4,6 @@ import org.bukkit.ChatColor;
 import shinyquizesplugin.Languages.LanguageManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.ConfigManager;
 import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.Question;
-import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.QuestionManager;
 
 public class AcronymQuestion implements Question {
 

@@ -2,7 +2,6 @@ package shinyquizesplugin.shinyquizesplugin.Quiz.Questions.AcronymQuestion;
 
 import org.bukkit.ChatColor;
 import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
-import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.CustomQuestions.CustomQuestion;
 import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.Question;
 import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.QuestionManager;
 
