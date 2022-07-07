@@ -4,7 +4,7 @@
 # followed by the answer.
 WB -/- Welcome Back
 WYD -/- What you doing
-LMAO -/- Laughin my ass off
+LMAO -/- Laughing my ass off
 LOL -/- Laugh out Loud
 OMG -/- oh my god
 GG -/- Good Game
@@ -23,7 +23,7 @@ TTYL -/- talk to you later
 IMO -/- in my opinion
 IMHO -/- in my honest opinion
 AKA -/- also known as
-FAQ -/- frequenly asked questions
+FAQ -/- frequently asked questions
 DIY -/- do it yourself
 ASAP -/- as soon as possible
 ILY -/- i love you

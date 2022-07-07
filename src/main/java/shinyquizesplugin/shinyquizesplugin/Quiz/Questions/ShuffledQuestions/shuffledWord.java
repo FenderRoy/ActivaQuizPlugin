@@ -24,7 +24,23 @@ public class shuffledWord implements Question {
     public String getQuestion() {
         String color = ConfigManager.getConfig().getString("HighlightedWordColor");
         String str = LanguageManager.getLanguage().get("shuffledQuestionAsker");
-        return java.text.MessageFormat.format(str, color+scramble(word)+ChatColor.WHITE);
+        return java.text.MessageFormat.format(str, color+getShuffledWord(word)+ChatColor.WHITE);
+    }
+
+    private String getShuffledWord(String word){
+        if(ConfigManager.getConfig().getBoolean("MakeShuffledQuestionsEasier")){
+            String[] wordsSeperated = word.split(" ");
+            StringBuilder stringBuilder  = new StringBuilder();
+            for(int i = 0; i < wordsSeperated.length; i++){
+                stringBuilder.append(scramble(wordsSeperated[i]));
+                if(i != wordsSeperated.length-1){
+                    stringBuilder.append(" ");
+                }
+            }
+            return stringBuilder.toString();
+        } else {
+            return scramble(word);
+        }
     }
 
     private String scramble(String inputString)
@@ -41,6 +57,9 @@ public class shuffledWord implements Question {
             char temp = a[i]; a[i] = a[j];  a[j] = temp;
         }
 
+        if(new String(a).equals(inputString)) {
+            return scramble(inputString);
+        }
         return new String(a);
     }
 

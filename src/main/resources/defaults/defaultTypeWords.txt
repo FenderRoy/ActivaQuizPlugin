@@ -106,7 +106,7 @@ Pink Dye
 Gray Dye
 Light Gray Dye
 Cyan Dye
-Purple DYe
+Purple Dye
 Blue Dye
 Brown Dye
 Green Dye

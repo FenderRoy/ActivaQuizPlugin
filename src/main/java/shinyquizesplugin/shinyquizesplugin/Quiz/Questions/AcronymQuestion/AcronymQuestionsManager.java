@@ -114,7 +114,7 @@ public class AcronymQuestionsManager {
                 "# followed by the answer.\n" +
                 "WB -/- Welcome Back\n" +
                 "WYD -/- What you doing\n" +
-                "LMAO -/- Laughin my ass off\n" +
+                "LMAO -/- Laughing my ass off\n" +
                 "LOL -/- Laugh out Loud\n" +
                 "OMG -/- oh my god\n" +
                 "GG -/- Good Game\n" +
@@ -133,7 +133,7 @@ public class AcronymQuestionsManager {
                 "IMO -/- in my opinion\n" +
                 "IMHO -/- in my honest opinion\n" +
                 "AKA -/- also known as\n" +
-                "FAQ -/- frequenly asked questions\n" +
+                "FAQ -/- frequently asked questions\n" +
                 "DIY -/- do it yourself\n" +
                 "ASAP -/- as soon as possible\n" +
                 "ILY -/- i love you\n" +

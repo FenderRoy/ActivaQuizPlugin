@@ -38,6 +38,11 @@ GiveRandomRewardOnCorrectAnswer: true
 # default: true
 enableRandomQuestions: true
 
+# Tries its best to make sure the same type
+# of question doesn't get asked multiple times in a row.
+# default: true
+enableRepeatingQuestionTypeProtection: true
+
 # Time in seconds that the question is active.
 # If there is no correct answer in the given time the question gets cancelled.
 # and the answer is revealed.
@@ -80,8 +85,18 @@ RandomQuestionAnnouncementTimer: 15
 PercentChanceForQuestion: 60
 
 
+#-------------------------------------------------------------------#
+#---------------------  ShuffledWord Questions ---------------------#
+#-------------------------------------------------------------------#
 
-
+# Shuffled questions with multiple words will keep the words seperated.
+# example:
+# word = Wither Rose
+# enabled: eithWr sRoe
+# disabled: rsR oeiWthe
+#
+# default: true
+MakeShuffledQuestionsEasier: true
 
 #-------------------------------------------------------------------#
 #-------------------------  Math Questions -------------------------#

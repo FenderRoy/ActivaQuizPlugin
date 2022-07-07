@@ -194,7 +194,7 @@ public class TypeWordQuestionManager {
                 "Gray Dye\n" +
                 "Light Gray Dye\n" +
                 "Cyan Dye\n" +
-                "Purple DYe\n" +
+                "Purple Dye\n" +
                 "Blue Dye\n" +
                 "Brown Dye\n" +
                 "Green Dye\n" +

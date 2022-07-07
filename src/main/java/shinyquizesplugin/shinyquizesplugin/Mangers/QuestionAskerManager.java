@@ -12,6 +12,8 @@ import static shinyquizesplugin.shinyquizesplugin.ShinyQuizesPlugin.PLUGIN;
 public class QuestionAskerManager {
 
 
+    private static int previousQuestion = -1;
+
     private static int percentChance;
     public static void start(){
         ActiveQuizInformation.cancelQuestion();
@@ -46,8 +48,7 @@ public class QuestionAskerManager {
     }
 
     public static void askRandomQuestion(){
-        int index = (int)(Math.random()* RandomQuestionManager.activeQuestions.size());
-        QuestionManager.createQuestion(RandomQuestionManager.activeQuestions.get(index).getQuestion());
+        QuestionManager.createQuestion(RandomQuestionManager.generateRandomQuestion());
     }
 
     public static void announceQuestion(int delay){
