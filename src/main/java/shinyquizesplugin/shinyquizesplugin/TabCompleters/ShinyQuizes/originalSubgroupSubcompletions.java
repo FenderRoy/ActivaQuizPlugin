@@ -15,6 +15,7 @@ public class originalSubgroupSubcompletions implements subcommand {
         if(sender.hasPermission("ShinyQuizes.reload")) completions.add("reload");
         if(sender.hasPermission("ShinyQuizes.QuizWins")) completions.add("wins");
         if(sender.hasPermission("ShinyQuizes.QuizLeaderboard")) completions.add("leaderboard");
+        if(sender.hasPermission("ShinyQuizes.askQuestions")) completions.add("menu");
         if(sender.hasPermission("ShinyQuizes.askQuestions")) completions.add("askRandomQuestion");
         if(sender.hasPermission("ShinyQuizes.askQuestions")) completions.add("askQuestion");
         if(sender.hasPermission("ShinyQuizes.cancelQuestions")) completions.add("cancelQuestion");

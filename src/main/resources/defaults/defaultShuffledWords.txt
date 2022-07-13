@@ -54,7 +54,6 @@ Parrot
 Phantom
 Pig
 Piglin
-Piglin
 Pillager
 Polar Bear
 Pufferfish

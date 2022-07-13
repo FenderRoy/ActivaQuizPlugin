@@ -68,4 +68,9 @@ public class shuffledWord implements Question {
         String str = LanguageManager.getLanguage().get("shuffledQuestionCancelled");
         return java.text.MessageFormat.format(str, highlightColor+word+ ChatColor.WHITE);
     }
+
+    @Override
+    public String toString() {
+        return word;
+    }
 }

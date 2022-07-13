@@ -2,9 +2,9 @@ package shinyquizesplugin.shinyquizesplugin.Mangers;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
-import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
 import shinyquizesplugin.shinyquizesplugin.handlers.CheckChatMessageHandler;
 import shinyquizesplugin.shinyquizesplugin.handlers.PlayerJoinHandler;
+import shinyquizesplugin.shinyquizesplugin.handlers.gui.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,10 +16,15 @@ public class HandlersManager {
     public static void initializeHandlers(){
         List<Listener> handlers = Arrays.asList(
                 new CheckChatMessageHandler(),
-                new PlayerJoinHandler()
+                new PlayerJoinHandler(),
+                new ShinyQuizesGUI(),
+                new mathQuestionGUI(),
+                new TypeWordGui(),
+                new ShuffledWordGui(),
+                new AcronymWordGui(),
+                new CustomWordGui()
         );
         register(handlers);
-        ServerCommunicator.sendConsoleMessage("Handlers initialized.");
     }
 
     private static void register(List<Listener> handlers){

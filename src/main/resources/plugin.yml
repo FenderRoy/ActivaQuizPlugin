@@ -12,6 +12,10 @@ commands:
     description: Plugin specific commands.
     usage: /ShinyQuizes
     permission: ShinyQuizes.ShinyQuizes
+  Quiz:
+    description: Opens the Shiny Quizes menu.
+    usage: /Quiz
+    permission: ShinyQuizes.askQuestions
   QuizWins:
     description: Checks how many wins someone has.
     usage: /QuizWins

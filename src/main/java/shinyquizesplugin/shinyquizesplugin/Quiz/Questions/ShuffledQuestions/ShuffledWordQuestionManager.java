@@ -4,6 +4,8 @@ import org.bukkit.ChatColor;
 import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
 import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.Question;
 import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.QuestionManager;
+import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.TypeQuestions.typeWord;
+import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.sortFunction;
 
 import java.io.*;
 import java.nio.charset.Charset;
@@ -59,10 +61,24 @@ public class ShuffledWordQuestionManager {
 
             shuffledWordListOriginal.addAll(shuffledWordList);
 
+            sortFunction.sort(shuffledWordListOriginal);
+
             ServerCommunicator.sendConsoleMessage(QuestionManager.questionsLoaded("Shuffled",shuffledWordListOriginal.size()));
         } catch (IOException e) {
             e.printStackTrace();
             ServerCommunicator.sendConsoleMessage(ChatColor.RED+QuestionManager.questionsLoadedFailed("Shuffled"));
+        }
+    }
+
+    private static void sort(List<typeWord> words){
+        for(int i = 0; i<words.size()-1; i++) {
+            for (int j = i+1; j<words.size(); j++) {
+                if(words.get(i).toString().compareTo(words.get(j).toString())>0) {
+                    typeWord temp = words.get(i);
+                    words.set(i, words.get(j));
+                    words.set(j, temp);
+                }
+            }
         }
     }
 
@@ -141,7 +157,6 @@ public class ShuffledWordQuestionManager {
                 "Parrot\n" +
                 "Phantom\n" +
                 "Pig\n" +
-                "Piglin\n" +
                 "Piglin\n" +
                 "Pillager\n" +
                 "Polar Bear\n" +

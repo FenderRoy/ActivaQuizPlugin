@@ -1,5 +1,6 @@
 package shinyquizesplugin.Languages;
 
+import org.bukkit.ChatColor;
 import shinyquizesplugin.Languages.defaultCreators.IDefaultLanguageCreator;
 import shinyquizesplugin.Languages.defaultCreators.createDefaultDutchLangues;
 import shinyquizesplugin.Languages.defaultCreators.createDefaultEnglishLanguage;
@@ -40,11 +41,6 @@ public class LanguageManager {
         assert files != null;
         for (File file : files) {
             if (file.isFile()) {
-                System.out.println("File " + file.getName());
-                System.out.println("File " + file.getName());
-                System.out.println("File " + file.getName());
-                System.out.println("File " + file.getName());
-                System.out.println("File " + file.getName());
                 if(file.getName().equals(language)){
                     languageFile.clear();
                     Properties properties = new Properties();
@@ -64,25 +60,10 @@ public class LanguageManager {
             }
         }
 
-//        for(IDefaultLanguageCreator languageCreator : languages){
-//            if(languageCreator.getFileName().equals(language)){
-//                languageFile.clear();
-//                Properties properties = new Properties();
-//                try {
-//                    properties.load(Files.newInputStream(Paths.get(PLUGIN.getDataFolder().getAbsolutePath()+ "/languages/"+languageCreator.getFileName())));
-//                } catch (IOException e) {
-//                    ServerCommunicator.sendConsoleMessage("Loading language failed.");
-//                    throw new RuntimeException(e);
-//                }
-//
-//                for (String key : properties.stringPropertyNames()) {
-//                    languageFile.put(key, properties.get(key).toString());
-//                }
-//                ServerCommunicator.sendConsoleMessage(properties.getProperty("languageReloaded"));
-//                return;
-//            }
-//        }
-        ServerCommunicator.sendConsoleMessage("Loading language failed.");
+        ServerCommunicator.sendConsoleMessage(ChatColor.RED+"Loading language failed.");
+        ServerCommunicator.sendConsoleMessage(ChatColor.RED+"Without a language file this plugin doesn't work. Please enter a valid language file in the config.");
+        ServerCommunicator.sendConsoleMessage(ChatColor.RED+"Without a valid language file you will get errors in the console.");
+        ServerCommunicator.sendConsoleMessage(ChatColor.RED+"To fix, please enter a valid language file.");
     }
 
 

@@ -18,6 +18,7 @@ public class ConfigManager {
         config.addDefault("MultiplyQuestionMaxValue", 25);
         config.addDefault("QuestionTimeOutDelay", 30);
         config.addDefault("DelayBetweenQuestions", 90);
+        config.addDefault("minimumNumberOfPlayersForQuestions", 0);
         config.addDefault("PercentChanceForQuestion", 33);
         config.addDefault("enableMathQuestions", true);
         config.addDefault("enableCustomQuestions", true);

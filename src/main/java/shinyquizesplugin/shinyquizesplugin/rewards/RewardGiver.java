@@ -1,5 +1,6 @@
 package shinyquizesplugin.shinyquizesplugin.rewards;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import shinyquizesplugin.shinyquizesplugin.Mangers.ConfigManager;
@@ -21,7 +22,12 @@ public class RewardGiver {
         for(RewardType rewardType : reward.getRewards()){
             if(rewardType instanceof ItemStackReward) {
                 ItemStackReward reward1 = (ItemStackReward) rewardType;
-                player.getInventory().addItem((ItemStack) reward1.get());
+                if(player.getInventory().firstEmpty() != -1) {
+                    player.getInventory().addItem((ItemStack) reward1.get());
+                } else {
+                    Bukkit.getScheduler().scheduleSyncDelayedTask(PLUGIN, () -> player.getWorld().dropItemNaturally(player.getLocation(), (ItemStack) reward1.get()));
+
+                }
             }
             if(rewardType instanceof MoneyReward && vaultEnabled) {
                 ServerCommunicator.sendChatMessageToPlayer(player, "+$"+(double)rewardType.get());

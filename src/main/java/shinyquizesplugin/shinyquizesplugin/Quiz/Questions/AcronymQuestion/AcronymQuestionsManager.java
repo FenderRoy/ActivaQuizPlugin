@@ -4,6 +4,7 @@ import org.bukkit.ChatColor;
 import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
 import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.Question;
 import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.QuestionManager;
+import shinyquizesplugin.shinyquizesplugin.Quiz.Questions.sortFunction;
 
 import java.io.*;
 import java.nio.charset.Charset;
@@ -52,6 +53,8 @@ public class AcronymQuestionsManager {
             reader.close();
 
             AcronymQuestionList.addAll(AcronymQuestionListOriginal);
+
+            sortFunction.sort(AcronymQuestionListOriginal);
 
 
             ServerCommunicator.sendConsoleMessage(QuestionManager.questionsLoaded("Acronym",AcronymQuestionListOriginal.size()));

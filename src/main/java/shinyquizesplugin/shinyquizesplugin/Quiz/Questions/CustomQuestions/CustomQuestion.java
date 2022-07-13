@@ -29,4 +29,9 @@ public class CustomQuestion implements Question {
         String str = LanguageManager.getLanguage().get("customQuestionCancelled");
         return java.text.MessageFormat.format(str, highlightColor+answer+ ChatColor.WHITE);
     }
+
+    @Override
+    public String toString() {
+        return question;
+    }
 }

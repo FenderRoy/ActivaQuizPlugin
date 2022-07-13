@@ -38,6 +38,12 @@ GiveRandomRewardOnCorrectAnswer: true
 # default: true
 enableRandomQuestions: true
 
+# The minimum number of players online for a random
+# question to be asked in chat.
+# set on 0 for no minimum number.
+# default: 0
+minimumNumberOfPlayersForQuestions: 0
+
 # Tries its best to make sure the same type
 # of question doesn't get asked multiple times in a row.
 # default: true

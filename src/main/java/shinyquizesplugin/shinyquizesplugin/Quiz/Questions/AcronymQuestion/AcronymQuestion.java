@@ -20,6 +20,10 @@ public class AcronymQuestion implements Question {
         return answer;
     }
 
+    public String getAcronym() {
+        return acronym;
+    }
+
     @Override
     public String getQuestion() {
         String color = ConfigManager.getConfig().getString("HighlightedWordColor");
@@ -31,5 +35,10 @@ public class AcronymQuestion implements Question {
     public String getFailedMessage(String highlightColor) {
         String str = LanguageManager.getLanguage().get("AcronymQuestionFailed");
         return java.text.MessageFormat.format(str, highlightColor+answer+ ChatColor.WHITE);
+    }
+
+    @Override
+    public String toString() {
+        return answer;
     }
 }

@@ -1,6 +1,8 @@
 package shinyquizesplugin.shinyquizesplugin.Leaderboard;
 
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
+import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
 
 import java.io.File;
 import java.io.IOException;
@@ -71,7 +73,7 @@ public class PlayerWinManager {
         try {
             properties.store(Files.newOutputStream(Paths.get(PLUGIN.getDataFolder().getAbsolutePath()+ "/playerdata/playerWinData.properties")), null);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            ServerCommunicator.sendConsoleMessage(ChatColor.RED+"Could not save player win data.");
         }
     }
 
@@ -81,7 +83,7 @@ public class PlayerWinManager {
         try {
             properties.load(Files.newInputStream(Paths.get(PLUGIN.getDataFolder().getAbsolutePath()+ "/playerdata/playerWinData.properties")));
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            ServerCommunicator.sendConsoleMessage(ChatColor.RED+"Could not load player win data.");
         }
 
         for (String key : properties.stringPropertyNames()) {

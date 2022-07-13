@@ -42,7 +42,7 @@ public final class ShinyQuizesPlugin extends JavaPlugin {
             vaultEnabled = true;
             ServerCommunicator.sendConsoleMessage("Vault detected, money enabled.");
         } else {
-            ServerCommunicator.sendConsoleMessage("No vault detected, money disabled.");
+            ServerCommunicator.sendConsoleMessage(ChatColor.RED+"No vault detected, money disabled.");
         }
 
         HandlersManager.initializeHandlers();

@@ -14,6 +14,8 @@ public class QuestionAskerManager {
 
     private static int previousQuestion = -1;
 
+
+    private static int minimumPlayers;
     private static int percentChance;
     public static void start(){
         ActiveQuizInformation.cancelQuestion();
@@ -21,6 +23,7 @@ public class QuestionAskerManager {
 
         int delay = ConfigManager.getConfig().getInt("DelayBetweenQuestions");
         percentChance = ConfigManager.getConfig().getInt("PercentChanceForQuestion");
+        minimumPlayers = ConfigManager.getConfig().getInt("minimumNumberOfPlayersForQuestions");
 
         if(ConfigManager.getConfig().getBoolean("enableRandomQuestions")) {
             int cd = ConfigManager.getConfig().getInt("RandomQuestionAnnouncementTimer");
@@ -33,8 +36,7 @@ public class QuestionAskerManager {
 
     private static void askRandomQuestionWithRepeat(int delay, boolean send){
 
-
-        if(send && !ActiveQuizInformation.isActive()) askRandomQuestion();
+        if(send && !ActiveQuizInformation.isActive() && enoughPlayers()) askRandomQuestion();
 
         boolean sendNextQuestion = sendNextQuestion(percentChance);
 
@@ -66,4 +68,11 @@ public class QuestionAskerManager {
         String str = LanguageManager.getLanguage().get("questionAnnouncement");
         return java.text.MessageFormat.format(str, color+time+ ChatColor.WHITE);
     }
+
+
+    private static boolean enoughPlayers(){
+        int players = PLUGIN.getServer().getOnlinePlayers().size();
+        return players >= minimumPlayers;
+    }
+
 }

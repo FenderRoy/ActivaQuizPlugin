@@ -3,7 +3,7 @@ package shinyquizesplugin.shinyquizesplugin.Mangers;
 import shinyquizesplugin.shinyquizesplugin.Commands.QuizLeaderboardCommand;
 import shinyquizesplugin.shinyquizesplugin.Commands.QuizWinsCommand;
 import shinyquizesplugin.shinyquizesplugin.Commands.ShinyQuizesPluginCommand;
-import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
+import shinyquizesplugin.shinyquizesplugin.Commands.quizCommand;
 import shinyquizesplugin.shinyquizesplugin.TabCompleters.QuizWinsTabCompleter;
 import shinyquizesplugin.shinyquizesplugin.TabCompleters.ShinyQuizesPluginTabCompleter;
 
@@ -19,8 +19,8 @@ public class CommandsManager {
         PLUGIN.getCommand("QuizWins").setTabCompleter(new QuizWinsTabCompleter());
 
         PLUGIN.getCommand("QuizLeaderboard").setExecutor(new QuizLeaderboardCommand());
+        PLUGIN.getCommand("Quiz").setExecutor(new quizCommand());
 
-        ServerCommunicator.sendConsoleMessage("Commands initialized.");
     }
 
 }

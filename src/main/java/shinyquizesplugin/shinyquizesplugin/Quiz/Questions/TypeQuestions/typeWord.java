@@ -28,4 +28,9 @@ public class typeWord implements Question {
     public String getFailedMessage(String highlightColor) {
         return LanguageManager.getLanguage().get("typeQuestionFailed");
     }
+
+    @Override
+    public String toString() {
+        return word;
+    }
 }
