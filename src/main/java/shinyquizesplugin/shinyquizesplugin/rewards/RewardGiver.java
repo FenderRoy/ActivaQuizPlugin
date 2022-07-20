@@ -1,40 +1,34 @@
 package shinyquizesplugin.shinyquizesplugin.rewards;
 
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
+import shinyquizesplugin.Languages.LanguageManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.ConfigManager;
 import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
-import shinyquizesplugin.shinyquizesplugin.rewards.rewardType.ItemStackReward;
-import shinyquizesplugin.shinyquizesplugin.rewards.rewardType.MoneyReward;
 import shinyquizesplugin.shinyquizesplugin.rewards.rewardType.RewardType;
-
-import static shinyquizesplugin.shinyquizesplugin.ShinyQuizesPlugin.*;
 
 public class RewardGiver {
 
     public static void giveReward(Player player){
-        if(!ConfigManager.getConfig().getBoolean("GiveRandomRewardOnCorrectAnswer")) return;
-        if(RewardManager.rewardList.size() == 0) return;
-
-        Reward reward = RewardManager.getRandomReward();
-
-        for(RewardType rewardType : reward.getRewards()){
-            if(rewardType instanceof ItemStackReward) {
-                ItemStackReward reward1 = (ItemStackReward) rewardType;
-                if(player.getInventory().firstEmpty() != -1) {
-                    player.getInventory().addItem((ItemStack) reward1.get());
-                } else {
-                    Bukkit.getScheduler().scheduleSyncDelayedTask(PLUGIN, () -> player.getWorld().dropItemNaturally(player.getLocation(), (ItemStack) reward1.get()));
-
-                }
-            }
-            if(rewardType instanceof MoneyReward && vaultEnabled) {
-                ServerCommunicator.sendChatMessageToPlayer(player, "+$"+(double)rewardType.get());
-                econ.depositPlayer(player, (Double) rewardType.get());
-            }
+        if(!ConfigManager.getConfig().getBoolean("enableRewards")) return;
+        for(int i = 0; i < ConfigManager.getConfig().getInt("amountOfRewards"); i++) {
+            giveRewardToPlayer(player);
         }
 
+        if(Math.random()*100 < ConfigManager.getConfig().getInt("percentChanceForExtraReward")){
+            ServerCommunicator.sendChatMessageToPlayer(player, ConfigManager.getConfig().getString("rewardNotifierColor")
+                    + LanguageManager.getLanguage().get("extraReward"));
+            giveRewardToPlayer(player);
+        }
+
+    }
+
+    private static void giveRewardToPlayer(Player player){
+        if (RewardManager.rewardList.size() == 0) return;
+        Reward reward = RewardManager.getRandomReward();
+
+        for (RewardType rewardType : reward.getRewards()) {
+            rewardType.execute(player);
+        }
     }
 
 }

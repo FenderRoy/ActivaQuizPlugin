@@ -1,12 +1,12 @@
 #-------------------------------------------------------------------#
-#--------------------------  Shiny Quizes --------------------------#
+#-------------------------- Shiny Quizes ---------------------------#
 #-------------------------------------------------------------------#
 # Developed by: Fender
 # Part of the Shiny development branch.
 
 
 #-------------------------------------------------------------------#
-#-------------------------  General Values -------------------------#
+#------------------------- General Values --------------------------#
 #-------------------------------------------------------------------#
 
 # Chat Prefix.
@@ -24,12 +24,8 @@ Language: english.properties
 # default: true
 EnableLeaderboard: true
 
-# whether to give rewards when a player answers correctly.
-# default: true
-GiveRandomRewardOnCorrectAnswer: true
-
 #-------------------------------------------------------------------#
-#------------------------  Random Questions ------------------------#
+#------------------------ Random Questions -------------------------#
 #-------------------------------------------------------------------#
 
 # General Question Values.
@@ -92,7 +88,7 @@ PercentChanceForQuestion: 60
 
 
 #-------------------------------------------------------------------#
-#---------------------  ShuffledWord Questions ---------------------#
+#--------------------- ShuffledWord Questions ----------------------#
 #-------------------------------------------------------------------#
 
 # Shuffled questions with multiple words will keep the words seperated.
@@ -105,7 +101,7 @@ PercentChanceForQuestion: 60
 MakeShuffledQuestionsEasier: true
 
 #-------------------------------------------------------------------#
-#-------------------------  Math Questions -------------------------#
+#------------------------- Math Questions --------------------------#
 #-------------------------------------------------------------------#
 
 # Math questions.
@@ -133,7 +129,39 @@ MinusQuestionAnswerCanBeNegative: true
 MultiplyQuestionMaxValue: 25
 
 
+#-------------------------------------------------------------------#
+#----------------------------- Rewards -----------------------------#
+#-------------------------------------------------------------------#
 
+# Whether to give rewards on a correct answer.
+# default: true
+enableRewards: true
+
+# Amount of rewards to give to the player:
+# default: 1
+amountOfRewards: 1
+
+# If there should be a percent chance for an extra reward.
+# put on 0 if no extra reward.
+# default: 15
+percentChanceForExtraReward: 15
+
+# Tell the player what item(s) they won.
+# for example:
+# +5 diamond sword
+# +16 arrow
+#
+# Note: This does not include money. Money rewards will ALWAYS show up in chat.
+# default: true
+enableRewardNotifier: true
+
+# Which symbol to use for money.
+# default: $
+rewardMoneySymbol: $
+
+# Default color of the reward messages
+# default: §a
+rewardNotifierColor: §a
 
 #-------------------------------------------------------------------#
 #------------ Not fully implemented yet. ignore for now ------------#

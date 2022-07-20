@@ -9,9 +9,11 @@ import static shinyquizesplugin.shinyquizesplugin.ShinyQuizesPlugin.PLUGIN;
 
 public class createDefaultEnglishLanguage implements IDefaultLanguageCreator{
     @Override
-    public void create() {
+    public Properties create(String version) {
 
         Properties p = new Properties();
+
+        p.setProperty("_version_", version);
 
         p.setProperty("languageReloaded", "Language is set to English.");
 
@@ -28,6 +30,7 @@ public class createDefaultEnglishLanguage implements IDefaultLanguageCreator{
         p.setProperty("noValidPlayer","Please enter a valid user.");
 
         p.setProperty("correctAnswer", "{0} answered correctly!");
+        p.setProperty("extraReward", "You got an extra reward!");
 
         p.setProperty("mostQuizWins", "Most quiz wins: ");
 
@@ -55,6 +58,7 @@ public class createDefaultEnglishLanguage implements IDefaultLanguageCreator{
         p.setProperty("noConsoleCommand","This command can't be executed from within console.");
         try {
             p.store(Files.newOutputStream(Paths.get(PLUGIN.getDataFolder().getAbsolutePath()+"/languages/"+getFileName())), "The english language file.");
+            return p;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

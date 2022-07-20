@@ -4,9 +4,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import shinyquizesplugin.shinyquizesplugin.Mangers.Messengers.ServerCommunicator;
-import shinyquizesplugin.shinyquizesplugin.rewards.rewardType.ItemStackReward;
-import shinyquizesplugin.shinyquizesplugin.rewards.rewardType.MoneyReward;
-import shinyquizesplugin.shinyquizesplugin.rewards.rewardType.RewardType;
+import shinyquizesplugin.shinyquizesplugin.rewards.rewardType.*;
 
 import java.io.*;
 import java.nio.charset.Charset;
@@ -51,23 +49,41 @@ public class RewardManager {
             String line;
 
             Reward reward = null;
+            boolean rewardCancelled = false;
             while ((line = bufferedReader.readLine()) != null) {
                 if (!line.startsWith("-")) {
                     if(line.trim().isEmpty() || line.startsWith("#")) continue;
-                    if (reward != null) rewardList.add(copyOfReward(reward));
+                    if (reward != null && !rewardCancelled) rewardList.add(copyOfReward(reward));
+
                     reward = new Reward();
+                    rewardCancelled = false;
                 } else {
-                    String formattedLine = line.replaceAll("-", "");
-                    if(formattedLine.toLowerCase().startsWith("money")){
+                    String formattedLine = line.substring(1);
+
+                    if(formattedLine.toLowerCase().startsWith("money ")){
                         String[] str = dissectLine(formattedLine);
                         reward.rewards.add(new MoneyReward(Double.parseDouble(str[1])));
                         continue;
                     }
+                    if(formattedLine.toLowerCase().startsWith("custom ")){
+                        reward.rewards.add(new CustomCommandReward(formattedLine.substring(7)));
+                        continue;
+                    }
+                    if(formattedLine.toLowerCase().startsWith("say ")){
+                        reward.rewards.add(new MessageToPlayerReward(formattedLine.substring(4)));
+                        continue;
+                    }
 
-                    String[] str = dissectLine(formattedLine);
-                    Material mat = Material.getMaterial(str[0].toUpperCase(Locale.ROOT));
-                    ItemStack stack = new ItemStack(mat, Integer.parseInt(str[1]));
-                    reward.addItemStack(stack);
+                    try {
+                        String[] str = dissectLine(formattedLine);
+                        Material mat = Material.getMaterial(str[0].toUpperCase(Locale.ROOT));
+                        ItemStack stack = new ItemStack(mat, Integer.parseInt(str[1]));
+                        reward.addItemStack(stack);
+                    } catch (Exception e){
+                        ServerCommunicator.sendConsoleMessage(ChatColor.RED+"Error loading reward: ["+formattedLine+"]");
+                        ServerCommunicator.sendConsoleMessage(ChatColor.RED+"This reward is disabled. please fix any syntax errors.");
+                        rewardCancelled = true;
+                    }
                 }
             }
             rewardList.add(copyOfReward(reward));
@@ -83,12 +99,13 @@ public class RewardManager {
 
     public static Reward copyOfReward(Reward reward){
         Reward newReward = new Reward();
-
         for(RewardType material : reward.getRewards()){
-            if(material instanceof ItemStackReward) newReward.addItemStack(new ItemStack((ItemStack) material.get()));
-            if(material instanceof MoneyReward) newReward.rewards.add(material);
+            if(material instanceof ItemStackReward) {
+                newReward.addItemStack(new ItemStack((ItemStack) material.get()));
+            } else {
+                newReward.rewards.add(material);
+            }
         }
-
         return newReward;
     }
 
@@ -127,7 +144,19 @@ public class RewardManager {
                 "# -[itemid] [amount]\n" +
                 "# -[itemid] [amount]\n" +
                 "# etc.\n" +
-                "\n" +
+                "#\n" +
+                "# To create a new money reward:\n" +
+                "# -money 100\n" +
+                "# -money 500\n" +
+                "#\n" +
+                "# To create a custom command:\n" +
+                "# -custom summon minecraft:creeper %playerX% %playerY% %playerZ%\n" +
+                "# -custom give %player% minecraft:diamond 10\n" +
+                "#\n" +
+                "# To send a chat message to the winning player:\n" +
+                "# -say You won!\n" +
+                "# -say congrats.\n"+
+                "#\n" +
                 "Reward 1:\n" +
                 "-diamond 1\n" +
                 "-money 100\n" +
@@ -160,6 +189,10 @@ public class RewardManager {
                 "-arrow 16\n" +
                 "\n" +
                 "Reward 10:\n" +
-                "-spectral_arrow 4";
+                "-spectral_arrow 4\n" +
+                "\n" +
+                "Reward 11:\n" +
+                "-say You got a dog!\n" +
+                "-custom summon minecraft:wolf %playerX% %playerY% %playerZ%";
     }
 }

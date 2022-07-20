@@ -18,14 +18,17 @@ public class LanguageManager {
 
     private static final Map<String, String> languageFile = new HashMap<>();
 
+    private static final String CURRENT_LANGUAGE_VERSION = "1.1";
+
     private static final List<IDefaultLanguageCreator> languages = Arrays.asList(
-            new createDefaultDutchLangues(),
-            new createDefaultEnglishLanguage()
+            new createDefaultEnglishLanguage(),
+            new createDefaultDutchLangues()
+
     );
 
     public static void initialize(){
         for(IDefaultLanguageCreator language : languages){
-            language.create();
+            language.create(CURRENT_LANGUAGE_VERSION);
         }
 
     }
@@ -51,6 +54,17 @@ public class LanguageManager {
                         throw new RuntimeException(e);
                     }
 
+                    try{
+                        if(!properties.getProperty("_version_").equals(CURRENT_LANGUAGE_VERSION)){
+                            wrongVersionError();
+                            return;
+                        }
+                    } catch (NullPointerException e){
+                        wrongVersionError();
+                        return;
+                    }
+
+
                     for (String key : properties.stringPropertyNames()) {
                         languageFile.put(key, properties.get(key).toString());
                     }
@@ -66,6 +80,15 @@ public class LanguageManager {
         ServerCommunicator.sendConsoleMessage(ChatColor.RED+"To fix, please enter a valid language file.");
     }
 
+    private static void wrongVersionError() {
+        ServerCommunicator.sendConsoleMessage(ChatColor.RED+"Your selected language file is not up to date. Defaulted to English.");
+        ServerCommunicator.sendConsoleMessage(ChatColor.RED+"If you are using an officially supported language please restart the server.");
+        ServerCommunicator.sendConsoleMessage(ChatColor.RED+"If you are using a custom made language please add the missing sentences and update the _version_ variable to: "+CURRENT_LANGUAGE_VERSION+" and reload the plugin.");
+        Properties defaultProperties = new createDefaultEnglishLanguage().create(CURRENT_LANGUAGE_VERSION);
+        for(String key : defaultProperties.stringPropertyNames()) {
+            languageFile.put(key, defaultProperties.get(key).toString());
+        }
+    }
 
 
 }

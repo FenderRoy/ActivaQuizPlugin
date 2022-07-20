@@ -1,8 +1,10 @@
 package shinyquizesplugin.Languages.defaultCreators;
 
+import java.util.Properties;
+
 public interface IDefaultLanguageCreator {
 
-    void create();
+    Properties create(String version);
 
     String getFileName();
 }

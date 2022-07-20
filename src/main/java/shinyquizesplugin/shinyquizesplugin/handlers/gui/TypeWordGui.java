@@ -1,7 +1,6 @@
 package shinyquizesplugin.shinyquizesplugin.handlers.gui;
 
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;

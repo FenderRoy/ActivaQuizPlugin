@@ -9,10 +9,11 @@ import static shinyquizesplugin.shinyquizesplugin.ShinyQuizesPlugin.PLUGIN;
 
 public class createDefaultDutchLangues implements IDefaultLanguageCreator{
     @Override
-    public void create() {
+    public Properties create(String version) {
 
         Properties p = new Properties();
 
+        p.setProperty("_version_", version);
 
         p.setProperty("languageReloaded", "De taal is gezet naar het Nederlands");
 
@@ -29,6 +30,7 @@ public class createDefaultDutchLangues implements IDefaultLanguageCreator{
         p.setProperty("noValidPlayer","Vul een geldige player in.");
 
         p.setProperty("correctAnswer", "{0} heeft het correct!");
+        p.setProperty("extraReward", "Je hebt een extra reward gekregen!");
 
         p.setProperty("mostQuizWins", "Meeste quiz wins: ");
 
@@ -57,6 +59,7 @@ public class createDefaultDutchLangues implements IDefaultLanguageCreator{
 
         try {
             p.store(Files.newOutputStream(Paths.get(PLUGIN.getDataFolder().getAbsolutePath()+"/languages/"+getFileName())), "The Dutch language file.");
+            return p;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

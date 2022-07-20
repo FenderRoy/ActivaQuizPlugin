@@ -4,19 +4,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ShinyQuizesPlugin</groupId>
-    <artifactId>ShinyQuizesPlugin</artifactId>
-    <version>1.5.1</version>
+    <groupId>ShinyQuizes</groupId>
+    <artifactId>ShinyQuizes</artifactId>
+    <version>1.5.6</version>
     <packaging>jar</packaging>
 
-    <name>ShinyQuizesPlugin</name>
+    <name>ShinyQuizes</name>
 
     <description>Create and ask random questions to keep your playerbase active.</description>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    <url>https://activakingdoms.nl</url>
+    <url>https://discord.gg/tZSxtrX9yU</url>
 
     <build>
         <plugins>
