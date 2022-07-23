@@ -56,6 +56,7 @@ public class RewardManager {
                     if (reward != null && !rewardCancelled) rewardList.add(copyOfReward(reward));
 
                     reward = new Reward();
+                    reward.setName(line);
                     rewardCancelled = false;
                 } else {
                     String formattedLine = line.substring(1);
@@ -106,6 +107,7 @@ public class RewardManager {
                 newReward.rewards.add(material);
             }
         }
+        newReward.setName(reward.getName());
         return newReward;
     }
 

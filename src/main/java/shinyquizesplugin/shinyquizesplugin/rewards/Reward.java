@@ -11,6 +11,15 @@ import java.util.List;
 public class Reward {
 
     public final List<RewardType> rewards = new ArrayList<>();
+    private String name = "";
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public List<RewardType> getRewards() {
         return Collections.unmodifiableList(rewards);

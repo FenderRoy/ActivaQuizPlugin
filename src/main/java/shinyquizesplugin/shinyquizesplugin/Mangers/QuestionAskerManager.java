@@ -28,19 +28,23 @@ public class QuestionAskerManager {
         if(ConfigManager.getConfig().getBoolean("enableRandomQuestions")) {
             int cd = ConfigManager.getConfig().getInt("RandomQuestionAnnouncementTimer");
             int announcementDelay = delay - cd;
-            if(ConfigManager.getConfig().getBoolean("enableRandomQuestionAnnouncement")) PLUGIN.getServer().getScheduler().scheduleSyncDelayedTask(PLUGIN, () -> announceQuestion(cd), 20L * announcementDelay);
-            PLUGIN.getServer().getScheduler().scheduleSyncDelayedTask(PLUGIN, () -> askRandomQuestionWithRepeat(delay, true), 20L *delay);
+            if(ConfigManager.getConfig().getBoolean("enableRandomQuestionAnnouncement") && enoughPlayers()) PLUGIN.getServer().getScheduler().scheduleSyncDelayedTask(PLUGIN, () -> announceQuestion(cd), 20L * announcementDelay);
+            PLUGIN.getServer().getScheduler().scheduleSyncDelayedTask(PLUGIN, () -> askRandomQuestionWithRepeat(delay, enoughPlayers()), 20L *delay);
         }
     }
 
 
     private static void askRandomQuestionWithRepeat(int delay, boolean send){
 
-        if(send && !ActiveQuizInformation.isActive() && enoughPlayers()) askRandomQuestion();
+        if(send && !ActiveQuizInformation.isActive() && enoughPlayers()) {
+            askRandomQuestion();
+        } else {
+            ServerCommunicator.sendDebugMessage("Skipped a question.");
+        }
 
         boolean sendNextQuestion = sendNextQuestion(percentChance);
 
-        if(ConfigManager.getConfig().getBoolean("enableRandomQuestionAnnouncement")){
+        if(ConfigManager.getConfig().getBoolean("enableRandomQuestionAnnouncement") && enoughPlayers()){
             int cd = ConfigManager.getConfig().getInt("RandomQuestionAnnouncementTimer");
             int announcementDelay = delay - cd;
             if(announcementDelay > 0 && sendNextQuestion) PLUGIN.getServer().getScheduler().scheduleSyncDelayedTask(PLUGIN, () -> announceQuestion(cd), 20L * announcementDelay);

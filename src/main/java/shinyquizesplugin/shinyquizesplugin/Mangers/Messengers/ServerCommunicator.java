@@ -33,6 +33,16 @@ public class ServerCommunicator {
         player.sendMessage(chatPrefix+": " + message);
     }
 
+    public static void sendEmptyChatLine(){
+        Bukkit.getServer().broadcastMessage("");
+    }
+
+    public static void sendDebugMessage(String message){
+        if(ConfigManager.getConfig().getBoolean("debugMode")){
+            sendConsoleMessage("[debug] "+message);
+        }
+    }
+
     public static String getChatPrefix() {
         return chatPrefix;
     }

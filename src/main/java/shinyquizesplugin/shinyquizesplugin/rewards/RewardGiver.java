@@ -25,6 +25,7 @@ public class RewardGiver {
     private static void giveRewardToPlayer(Player player){
         if (RewardManager.rewardList.size() == 0) return;
         Reward reward = RewardManager.getRandomReward();
+        ServerCommunicator.sendDebugMessage("Gave reward: \""+reward.getName()+"\"");
 
         for (RewardType rewardType : reward.getRewards()) {
             rewardType.execute(player);

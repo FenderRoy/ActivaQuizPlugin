@@ -12,6 +12,9 @@ public class ConfigManager {
 
     private static void writeConfig(){
 
+
+        config.addDefault("debugMode", false);
+
         //General Values
         config.addDefault("ChatPrefix", "§5Shiny §dQuizes");
         config.addDefault("Language", "english.properties");
@@ -19,6 +22,7 @@ public class ConfigManager {
 
         //Random Questions
         config.addDefault("enableRandomQuestions", true);
+        config.addDefault("enableVisabilityEmptyLine", true);
         config.addDefault("minimumNumberOfPlayersForQuestions", 0);
         config.addDefault("enableRepeatingQuestionTypeProtection", true);
         config.addDefault("QuestionTimeOutDelay", 30);

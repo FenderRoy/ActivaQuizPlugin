@@ -4,6 +4,9 @@
 # Developed by: Fender
 # Part of the Shiny development branch.
 
+# Enable debug mode.
+# default: false
+debugMode: false
 
 #-------------------------------------------------------------------#
 #------------------------- General Values --------------------------#
@@ -33,6 +36,10 @@ EnableLeaderboard: true
 # If the plugin should ask random questions.
 # default: true
 enableRandomQuestions: true
+
+# If there should be an empty line before the questions to make them more visable.
+# default: true
+enableVisabilityEmptyLine: true
 
 # The minimum number of players online for a random
 # question to be asked in chat.
